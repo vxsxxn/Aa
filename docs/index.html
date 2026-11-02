@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aa</title>
+  <meta name="description" content="Aa — a desktop AI agent you stay in charge of.">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #fafafa;
+      --fg: #111;
+      --muted: #555;
+      --line: #ddd;
+      --card: #fff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0e0e0e;
+        --fg: #f2f2f2;
+        --muted: #a0a0a0;
+        --line: #2a2a2a;
+        --card: #161616;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.55;
+      -webkit-text-size-adjust: 100%;
+    }
+    main {
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 4.5rem 1.25rem 5rem;
+    }
+    h1 {
+      font-size: 2.75rem;
+      font-weight: 650;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin: 0 0 0.6rem;
+    }
+    h2 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 3rem 0 0.9rem;
+    }
+    p { margin: 0 0 1rem; }
+    .lede {
+      font-size: 1.15rem;
+      color: var(--muted);
+      margin-bottom: 2.25rem;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 0.5rem;
+    }
+    li {
+      padding: 0.7rem 0;
+      border-top: 1px solid var(--line);
+    }
+    li:last-child { border-bottom: 1px solid var(--line); }
+    li strong {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+    li span { color: var(--muted); font-size: 0.95rem; }
+    pre {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+      overflow-x: auto;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      margin: 0 0 1rem;
+    }
+    a {
+      color: var(--fg);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    a:hover { opacity: 0.7; }
+    .cta {
+      display: inline-block;
+      margin-top: 0.25rem;
+      padding: 0.7rem 1.1rem;
+      border: 1px solid var(--fg);
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 560;
+      font-size: 0.95rem;
+    }
+    .cta:hover { opacity: 1; background: var(--fg); color: var(--bg); }
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Aa</h1>
+    <p class="lede">A desktop AI agent you stay in charge of.</p>
+
+    <h2>What it is</h2>
+    <p>
+      Aa is a desktop AI agent for building things — code, sites, and day-to-day work.
+      It started as a fork of Hermes Agent and is becoming its own project.
+    </p>
+
+    <h2>How it works</h2>
+    <ul>
+      <li>
+        <strong>You stay in charge</strong>
+        <span>Every action needs your approval before it runs.</span>
+      </li>
+      <li>
+        <strong>No lock-in</strong>
+        <span>Your data stays portable and open. Leave whenever you want.</span>
+      </li>
+      <li>
+        <strong>Free will</strong>
+        <span>Aa helps; it doesn’t take the wheel.</span>
+      </li>
+    </ul>
+
+    <h2>What’s in it</h2>
+    <ul>
+      <li>
+        <strong>Desktop settings</strong>
+        <span>Configure the agent on your machine.</span>
+      </li>
+      <li>
+        <strong>Approvals UI</strong>
+        <span>Review and allow actions before they happen.</span>
+      </li>
+      <li>
+        <strong>Secret vault</strong>
+        <span>Keep credentials out of plain files and chat.</span>
+      </li>
+      <li>
+        <strong>Mods system</strong>
+        <span>Extend Aa without rewriting the core.</span>
+      </li>
+    </ul>
+
+    <h2>Install</h2>
+    <p>From the repo, with Python 3.11–3.14:</p>
+    <pre>git clone https://github.com/vxsxxn/Aa.git
+cd Aa
+pip install -e .
+Aa</pre>
+    <p>The CLI entry point is <code>Aa</code>.</p>
+
+    <p style="margin-top: 2.5rem;">
+      <a class="cta" href="https://github.com/vxsxxn/Aa">View on GitHub</a>
+    </p>
+
+    <footer>
+      Based on Hermes Agent by Nous Research, MIT License.
+      <br>
+      <a href="https://github.com/vxsxxn/Aa">github.com/vxsxxn/Aa</a>
+    </footer>
+  </main>
+</body>
+</html>
