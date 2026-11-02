@@ -3,7 +3,7 @@
 
 
 [project]
-name = "hermes-agent"
+name = "aa"
 version = "0.0.0"
 description = "The self-improving AI agent — creates skills from experience, improves them during use, and runs anywhere"
 readme = "README.md"
@@ -445,20 +445,20 @@ azure-identity = ["azure-identity==1.25.3"]
 termux = [
   # Baseline Android / Termux path for reliable fresh installs.
   "python-telegram-bot[webhooks]==22.8",
-  "hermes-agent[cron]",
-  "hermes-agent[mcp]",
-  "hermes-agent[acp]",
+  "aa[cron]",
+  "aa[mcp]",
+  "aa[acp]",
 ]
 termux-all = [
   # Best-effort "install all" profile for Termux. Same policy as [all]:
   # only includes extras that are not prepared on demand by PM.
   # Backends like telegram/slack/dingtalk/feishu lazy-install at
   # first use, so they're no longer eager-installed here.
-  "hermes-agent[termux]",
-  "hermes-agent[google]",
-  "hermes-agent[sms]",
-  "hermes-agent[web]",
-  "hermes-agent[pty]",
+  "aa[termux]",
+  "aa[google]",
+  "aa[sms]",
+  "aa[web]",
+  "aa[pty]",
 ]
 dingtalk = [
   "dingtalk-stream==0.24.3",
@@ -522,15 +522,15 @@ all = [
   # [all], `uv sync --locked` on Windows tried to build it from sdist
   # and failed on `make`. Lazy-install routes that build to first use,
   # where the user is expected to have a toolchain available.
-  "hermes-agent[cron]",
-  "hermes-agent[pty]",
-  "hermes-agent[mcp]",
-  "hermes-agent[uvloop]",
-  "hermes-agent[sms]",
-  "hermes-agent[acp]",
-  "hermes-agent[google]",
-  "hermes-agent[web]",
-  "hermes-agent[youtube]",
+  "aa[cron]",
+  "aa[pty]",
+  "aa[mcp]",
+  "aa[uvloop]",
+  "aa[sms]",
+  "aa[acp]",
+  "aa[google]",
+  "aa[web]",
+  "aa[youtube]",
 ]
 
 [dependency-groups]
