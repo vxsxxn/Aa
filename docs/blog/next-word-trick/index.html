@@ -35,6 +35,8 @@
     em, i { color:var(--muted); }
     .diagram { background:var(--card); border:1px solid var(--line); border-radius:12px;
       padding:1rem; margin:1.6rem 0; }
+    .diagram pre { margin:0; overflow-x:auto; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      font-size:.82rem; line-height:1.45; }
     .cap { color:var(--muted); font-size:.95rem; }
     .next { border-top:1px solid var(--line); margin-top:3rem; padding-top:1.2rem; }
     footer { border-top:1px solid var(--line); margin-top:3.5rem; padding:2rem 0 3rem;
@@ -57,27 +59,24 @@
     <h1>The whole trick</h1>
 
     <div class="diagram">
-      <svg viewBox="0 0 640 280" width="100%" role="img" aria-label="Diagram: a loop that appends one guessed word and repeats">
-        <rect x="40" y="90" width="180" height="70" rx="10" fill="var(--soft)" stroke="var(--line)"/>
-        <text x="130" y="120" text-anchor="middle" font-size="14" fill="var(--fg)">the machine:</text>
-        <text x="130" y="142" text-anchor="middle" font-size="13" fill="var(--muted)">predict next word</text>
-
-        <path d="M220 125 h70" stroke="var(--muted)" fill="none"/>
-        <text x="255" y="112" text-anchor="middle" font-size="12" fill="var(--muted)">picks one</text>
-
-        <rect x="290" y="90" width="110" height="70" rx="10" fill="none" stroke="var(--fg)" stroke-width="1.5"/>
-        <text x="345" y="131" text-anchor="middle" font-size="16" fill="var(--fg)">"cat"</text>
-
-        <path d="M400 125 h60" stroke="var(--muted)" fill="none"/>
-        <text x="470" y="131" font-size="13" fill="var(--muted)">append it</text>
-
-        <path d="M130 90 v-40 h340 v36" fill="none" stroke="var(--muted)" stroke-dasharray="5 5"/>
-        <text x="320" y="36" text-anchor="middle" font-size="13" fill="var(--muted)">now "cat" is in the text — go again</text>
-        <text x="470" y="66" font-size="13" fill="var(--muted)">↻ thousands of times</text>
-
-        <text x="320" y="210" text-anchor="middle" font-size="14" fill="var(--muted)">every answer you've ever seen from it</text>
-        <text x="320" y="234" text-anchor="middle" font-size="15" fill="var(--fg)" font-weight="600">came out of this loop</text>
-      </svg>
+<pre>  "The cat sat on the"
+        │
+        ▼
+  ┌─────────────────┐    mat    92%  ← pick one
+  │ guess the next  │    floor   3%
+  │      word       │    roof    1%
+  └─────────────────┘    pad    &lt;1%   ...
+        │
+        │  append "mat", run the whole thing again
+        ▼
+  "The cat sat on the mat"
+        │
+        ▼
+  "The cat sat on the mat because"    ← again
+        │
+        ▼
+  ... every reply you've ever read
+      came out of this loop</pre>
     </div>
 
     <p class="cap">"The cat sat on the ___" → "mat". That's the entire skill. Trained on a huge amount of text, the guess gets scarily accurate — and accuracy at that scale <em>looks like</em> thinking.</p>
