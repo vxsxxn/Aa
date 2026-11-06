@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Making it say "I don't know" · Aa</title>
+  <meta name="description" content="A guesser never stops to say dunno. You have to give it an out.">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f7f7f7; --fg: #111; --muted: #5a5a5a; --line: #d8d8d8;
+      --card: #fff; --soft: #efefef;
+    }
+    @media (prefers-color-scheme: dark) {{
+      :root {{
+        --bg: #0c0c0c; --fg: #f3f3f3; --muted: #9a9a9a;
+        --line: #2a2a2a; --card: #151515; --soft: #1c1c1c;
+      }}
+    }}
+    body {{ margin:0; background:var(--bg); color:var(--fg);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+      font-size:16px; line-height:1.6; }}
+    a {{ color:var(--fg); text-underline-offset:3px; }}
+    a:hover {{ opacity:0.7; }}
+    .wrap {{ width:min(680px,calc(100% - 2rem)); margin:0 auto; }}
+    header.nav {{ position:sticky; top:0; z-index:10; backdrop-filter:blur(10px);
+      background:color-mix(in srgb,var(--bg) 85%,transparent); border-bottom:1px solid var(--line); }}
+    .nav-inner {{ display:flex; align-items:center; justify-content:space-between;
+      padding:.9rem 0; gap:1rem; }}
+    .brand {{ font-weight:700; text-decoration:none; }}
+    .nav-links a {{ margin-left:1.1rem; text-decoration:none; font-size:.95rem; }}
+    .kicker {{ color:var(--muted); margin:2.5rem 0 .4rem; font-size:.9rem; }}
+    h1 {{ font-size:2rem; letter-spacing:-0.02em; margin:0 0 1rem; }}
+    p {{ margin:.9rem 0; }}
+    em, i {{ color:var(--muted); }}
+    .diagram {{ background:var(--card); border:1px solid var(--line); border-radius:12px;
+      padding:1rem; margin:1.6rem 0; }}
+    .diagram pre {{ margin:0; overflow-x:auto; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      font-size:.82rem; line-height:1.45; }}
+    .cap {{ color:var(--muted); font-size:.95rem; }}
+    .next {{ border-top:1px solid var(--line); margin-top:3rem; padding-top:1.2rem; }}
+    footer {{ border-top:1px solid var(--line); margin-top:3.5rem; padding:2rem 0 3rem;
+      color:var(--muted); font-size:.9rem; }}
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/">Aa</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/blog/">Blog</a>
+        <a href="https://github.com/vxsxxn/Aa">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <p class="kicker">Building an agent</p>
+    <h1>Making it say "I don't know"</h1>
+
+    <div class="diagram">
+<pre>  you: &quot;who won the 2031 world cup?&quot;
+        │
+        ▼
+  ┌──────────────────────┐
+  │ guess the next word  │
+  └──────────────────────┘
+        │
+        ▼
+  &quot;The winning team was the ...&quot;
+        ↑
+  it kept going. guessing is the only
+  setting it has.</pre>
+    </div>
+    <p class="cap">It can't decline to answer — a guess is all it can produce. So it invents a team, a score, a date, in fluent prose. The confidence is real; the accuracy isn't.</p>
+    <p class="cap">You fix this outside the model: tell it plainly in the system prompt — "if you're not sure, say you don't know instead of guessing" — and give it a tool to check facts when one exists.</p>
+    <p class="cap">It won't be perfect. But the fallback flips from silent invention to an actual sentence you can build on.</p>
+    <div class="next">
+      Next: <a href="/blog/">Blog</a>
+    </div>
+  </main>
+
+  <footer><div class="wrap">Aa — an AI agent with a small core. <a href="/">Home</a> · <a href="/blog/">Blog</a></div></footer>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Money and keys · Aa</title>
+  <meta name="description" content="API keys live in env vars on your server — never in client code.">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f7f7f7; --fg: #111; --muted: #5a5a5a; --line: #d8d8d8;
+      --card: #fff; --soft: #efefef;
+    }
+    @media (prefers-color-scheme: dark) {{
+      :root {{
+        --bg: #0c0c0c; --fg: #f3f3f3; --muted: #9a9a9a;
+        --line: #2a2a2a; --card: #151515; --soft: #1c1c1c;
+      }}
+    }}
+    body {{ margin:0; background:var(--bg); color:var(--fg);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+      font-size:16px; line-height:1.6; }}
+    a {{ color:var(--fg); text-underline-offset:3px; }}
+    a:hover {{ opacity:0.7; }}
+    .wrap {{ width:min(680px,calc(100% - 2rem)); margin:0 auto; }}
+    header.nav {{ position:sticky; top:0; z-index:10; backdrop-filter:blur(10px);
+      background:color-mix(in srgb,var(--bg) 85%,transparent); border-bottom:1px solid var(--line); }}
+    .nav-inner {{ display:flex; align-items:center; justify-content:space-between;
+      padding:.9rem 0; gap:1rem; }}
+    .brand {{ font-weight:700; text-decoration:none; }}
+    .nav-links a {{ margin-left:1.1rem; text-decoration:none; font-size:.95rem; }}
+    .kicker {{ color:var(--muted); margin:2.5rem 0 .4rem; font-size:.9rem; }}
+    h1 {{ font-size:2rem; letter-spacing:-0.02em; margin:0 0 1rem; }}
+    p {{ margin:.9rem 0; }}
+    em, i {{ color:var(--muted); }}
+    .diagram {{ background:var(--card); border:1px solid var(--line); border-radius:12px;
+      padding:1rem; margin:1.6rem 0; }}
+    .diagram pre {{ margin:0; overflow-x:auto; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      font-size:.82rem; line-height:1.45; }}
+    .cap {{ color:var(--muted); font-size:.95rem; }}
+    .next {{ border-top:1px solid var(--line); margin-top:3rem; padding-top:1.2rem; }}
+    footer {{ border-top:1px solid var(--line); margin-top:3.5rem; padding:2rem 0 3rem;
+      color:var(--muted); font-size:.9rem; }}
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/">Aa</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/blog/">Blog</a>
+        <a href="https://github.com/vxsxxn/Aa">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <p class="kicker">Building an agent</p>
+    <h1>Money and keys</h1>
+
+    <div class="diagram">
+<pre>  key inside your app&#x27;s code
+        │
+        ▼
+  anyone can unpack it →
+  their bill, your card
+        vs
+  key in an env var, on your server
+        │
+        ▼
+  app → your server → the API
+  the key never leaves home</pre>
+    </div>
+    <p class="cap">An API key in shipped code is a leaked key, on a long enough timeline. Env vars on a machine you control; the client talks to your server, your server talks to the provider.</p>
+    <p class="cap">Set a spending cap on day one. Every builder's first bill spike is a loop that forgot to stop or a fat paste that got replayed — the cap is what turns that story into a lesson instead of an invoice.</p>
+    <p class="cap">Check usage weekly at the start. Weird curve = a loop somewhere is spinning.</p>
+    <div class="next">
+      Next: <a href="/blog/">Blog</a>
+    </div>
+  </main>
+
+  <footer><div class="wrap">Aa — an AI agent with a small core. <a href="/">Home</a> · <a href="/blog/">Blog</a></div></footer>
+</body>
+</html>
