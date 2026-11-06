@@ -56,24 +56,78 @@
     <p class="lead">Notes from building an AI agent.</p>
 
     <div class="post">
-      <a href="/blog/person-or-tool/">It talks like a person. It isn't.</a>
-      <p>First thing you notice building one.</p>
-      <a class="thumb" href="/blog/person-or-tool/" aria-hidden="true">
-<pre>  ┌────────────┐   ┌───────────────┐
-  │ your brain │ → │ words in/out  │   = a tool
-  └────────────┘   └───────────────┘
-    sees a person</pre>
+      <a href="/blog/one-tool/">Give it one tool</a>
+      <p>The model decides. Your code acts.</p>
+      <a class="thumb" href="/blog/one-tool/" aria-hidden="true">
+<pre>  model: "call list_files"
+  your code runs it → paste result back</pre>
       </a>
     </div>
 
     <div class="post">
-      <a href="/blog/next-word-trick/">Why it can't actually do anything</a>
-      <p>It guesses words — it doesn't act.</p>
-      <a class="thumb" href="/blog/next-word-trick/" aria-hidden="true">
-<pre>  ┌──────────────┐
-  │ next-word    │ → "cat" → again, for hours
-  │ picker       │
-  └──────────────┘</pre>
+      <a href="/blog/wrong-tool/">It calls the wrong tool</a>
+      <p>Vague descriptions are the #1 cause.</p>
+      <a class="thumb" href="/blog/wrong-tool/" aria-hidden="true">
+<pre>  "gets the weather"
+  → get_weather(city="Paris, TX")
+     right name, wrong place</pre>
+      </a>
+    </div>
+
+    <div class="post">
+      <a href="/blog/why-it-forgets/">Why it forgets</a>
+      <p>The context window is a slot, not a mind.</p>
+      <a class="thumb" href="/blog/why-it-forgets/" aria-hidden="true">
+<pre>  whiteboard fills up
+  → oldest turns fall off
+  "what did I say first?" — gone</pre>
+      </a>
+    </div>
+
+    <div class="post">
+      <a href="/blog/say-i-dont-know/">Making it say "I don't know"</a>
+      <p>A guesser never stops to say dunno.</p>
+      <a class="thumb" href="/blog/say-i-dont-know/" aria-hidden="true">
+<pre>  "who won the 2031 cup?"
+  guess → "The winner was ..."
+  it never had a "dunno" setting</pre>
+      </a>
+    </div>
+
+    <div class="post">
+      <a href="/blog/paste-bloat/">It got dumb after you pasted a PDF</a>
+      <p>Long inputs crowd out attention — and bill.</p>
+      <a class="thumb" href="/blog/paste-bloat/" aria-hidden="true">
+<pre>  50-page PDF pasted in
+  → every later word competes
+     with 50 pages</pre>
+      </a>
+    </div>
+
+    <div class="post">
+      <a href="/blog/retrieve-dont-store/">Memory: retrieve, don't store</a>
+      <p>Save notes, pull back what matters.</p>
+      <a class="thumb" href="/blog/retrieve-dont-store/" aria-hidden="true">
+<pre>  store everything → slow, bloated
+  retrieve 2 relevant bits → paste in</pre>
+      </a>
+    </div>
+
+    <div class="post">
+      <a href="/blog/framework-or-not/">Framework or no framework</a>
+      <p>Call the API directly once.</p>
+      <a class="thumb" href="/blog/framework-or-not/" aria-hidden="true">
+<pre>  framework: hides the loop
+  no framework: 20 lines, all visible</pre>
+      </a>
+    </div>
+
+    <div class="post">
+      <a href="/blog/money-and-keys/">Money and keys</a>
+      <p>Keys live in env vars. Set a cap on day one.</p>
+      <a class="thumb" href="/blog/money-and-keys/" aria-hidden="true">
+<pre>  key in client code → leaked
+  env var on your server → safe</pre>
       </a>
     </div>
   </main>
