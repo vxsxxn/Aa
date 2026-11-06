@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What is AI, actually? · Learn AI</title>
+  <meta name="description" content="AI explained in plain English: the difference between normal programs and AI is where the rules came from. Lesson 1 of a beginner series.">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f7f7f7; --fg: #111; --muted: #5a5a5a; --line: #d8d8d8;
+      --card: #fff; --soft: #efefef;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0c0c0c; --fg: #f3f3f3; --muted: #9a9a9a;
+        --line: #2a2a2a; --card: #151515; --soft: #1c1c1c;
+      }
+    }
+    body { margin:0; background:var(--bg); color:var(--fg);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+      font-size:16px; line-height:1.65; }
+    a { color:var(--fg); text-underline-offset:3px; }
+    a:hover { opacity:0.7; }
+    .wrap { width:min(680px,calc(100% - 2rem)); margin:0 auto; }
+    header.nav { position:sticky; top:0; z-index:10; backdrop-filter:blur(10px);
+      background:color-mix(in srgb,var(--bg) 85%,transparent); border-bottom:1px solid var(--line); }
+    .nav-inner { display:flex; align-items:center; justify-content:space-between;
+      padding:.9rem 0; gap:1rem; }
+    .brand { font-weight:700; text-decoration:none; }
+    .nav-links a { margin-left:1.1rem; text-decoration:none; font-size:.95rem; }
+    .kicker { color:var(--muted); margin:2.5rem 0 .4rem; font-size:.9rem; }
+    h1 { font-size:2rem; letter-spacing:-0.02em; margin:0 0 1.5rem; }
+    h2 { font-size:1.25rem; margin:2.2rem 0 .6rem; }
+    p { margin:.8rem 0; }
+    em, i { color:var(--muted); }
+    .box { background:var(--soft); border:1px solid var(--line); border-radius:12px;
+      padding:1rem 1.2rem; margin:1.4rem 0; }
+    .next { border-top:1px solid var(--line); margin-top:3rem; padding-top:1.2rem; }
+    footer { border-top:1px solid var(--line); margin-top:3.5rem; padding:2rem 0 3rem;
+      color:var(--muted); font-size:.9rem; }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/">Aa</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/blog/">Learn AI</a>
+        <a href="https://github.com/vxsxxn/Aa">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <p class="kicker">Lesson 1 · November 7, 2026 · Learn AI series</p>
+    <h1>What is AI, actually?</h1>
+
+    <p>Strip away the hype and every computer program is the same thing: a list of rules that turns input into output. A calculator takes two numbers and applies the rule "add them." A spam filter takes an email and applies millions of small rules that end in "spam" or "not spam."</p>
+
+    <p>The only interesting question — and the question that separates normal software from AI — is: <strong>where did the rules come from?</strong></p>
+
+    <h2>Rules written by a person</h2>
+    <p>In normal software, a human writes every rule. "If the password is wrong, show an error. If the cart is empty, disable the checkout button." This works well when a person can actually describe what to do. It fails badly when they can't.</p>
+
+    <p>Think about how you'd write rules for "recognize a cat in a photo." A cat can be black, orange, fluffy, hairless, in shadow, half behind a sofa. Nobody can write that rulebook. Not because people don't understand cats — because people understand cats in a way they can't put into words.</p>
+
+    <h2>Rules learned from examples</h2>
+    <p>AI is the shortcut around that wall: instead of a person writing the rules, a program <em>finds</em> the rules by looking at millions of examples of cats and adjusting itself until it stops being wrong. The programmer never writes what a cat is; the programmer builds the process that learns it.</p>
+
+    <p>That's the whole definition. <strong>AI is software whose rules were learned from examples instead of written by hand.</strong> Everything else — chatbots, image generators, self-driving cars, AI agents — is that same idea applied to a harder problem than cats.</p>
+
+    <div class="box">
+      <strong>The one-sentence test.</strong> Ask: could a person write the rulebook for this task? If yes, you don't need AI — a normal program will be cheaper, faster, and more predictable. If no (recognizing faces, understanding language, writing text), that's where AI earns its place.
+    </div>
+
+    <h2>Why the rules are hard to see</h2>
+    <p>There's a consequence worth knowing early: learned rules are a tangle of numbers, not sentences. In a normal program you can open the code and read what it will do. In a trained model there is nothing to read — billions of small numbers that <em>together</em> produce the behavior. Nobody, including the people who built it, can point at a line and say "this is why it did that."</p>
+
+    <p>That single fact explains a lot of what you'll meet later in this series: why models sometimes behave strangely, why they have to be tested by using them rather than by reading them, and why they can be surprising even to their creators.</p>
+
+    <h2>Where this is going</h2>
+    <p>Chatbots feel like talking to a person, but the same definition applies: the rules for how words follow each other were learned from enormous amounts of human writing instead of written by linguists. The next lesson looks at that "brain" — what a model actually is — because almost everything else about AI agents stands on top of it.</p>
+
+    <div class="next">
+      Next: <a href="/blog/what-is-a-model/">What is a model?</a> · <a href="/blog/">All lessons</a>
+    </div>
+  </main>
+
+  <footer><div class="wrap">Aa — an AI agent with a small core. <a href="/">Home</a> · <a href="/blog/">Learn AI</a></div></footer>
+</body>
+</html>
