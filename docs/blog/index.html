@@ -34,7 +34,8 @@
     .post { border-top:1px solid var(--line); padding:1.4rem 0; }
     .post a { text-decoration:none; font-weight:600; font-size:1.15rem; }
     .post p { margin:.3rem 0 .8rem; color:var(--muted); font-size:.95rem; }
-    .thumb { background:var(--card); border:1px solid var(--line); border-radius:10px; }
+    .thumb { background:var(--card); border:1px solid var(--line); border-radius:10px; display:block; padding:.8rem 1rem; }
+    .thumb pre { margin:0; overflow-x:auto; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:.8rem; line-height:1.45; color:var(--fg); }
     footer { border-top:1px solid var(--line); margin-top:3.5rem; padding:2rem 0 3rem;
       color:var(--muted); font-size:.9rem; }
   </style>
@@ -58,18 +59,10 @@
       <a href="/blog/person-or-tool/">Why it feels like a person</a>
       <p>It isn't one. Your brain just has one program for language.</p>
       <a class="thumb" href="/blog/person-or-tool/" aria-hidden="true">
-      <svg viewBox="0 0 600 120" width="100%" role="img" aria-label="Two arrows feed a machine that outputs words">
-        <rect x="20" y="40" width="120" height="40" rx="8" fill="var(--soft)"/>
-        <text x="80" y="65" text-anchor="middle" font-size="14" fill="var(--fg)">your brain</text>
-        <rect x="170" y="40" width="120" height="40" rx="8" fill="var(--soft)"/>
-        <text x="230" y="65" text-anchor="middle" font-size="14" fill="var(--fg)">the product</text>
-        <line x1="140" y1="60" x2="275" y2="60" stroke="var(--muted)"/>
-        <rect x="300" y="30" width="160" height="60" rx="10" fill="none" stroke="var(--fg)" stroke-width="1.5"/>
-        <text x="380" y="58" text-anchor="middle" font-size="14" fill="var(--fg)">takes words in,</text>
-        <text x="380" y="76" text-anchor="middle" font-size="14" fill="var(--fg)">words out</text>
-        <line x1="290" y1="60" x2="300" y2="60" stroke="var(--muted)"/>
-        <text x="480" y="65" font-size="14" fill="var(--muted)">= a tool</text>
-      </svg>
+<pre>  ┌────────────┐   ┌───────────────┐
+  │ your brain │ → │ words in/out  │   = a tool
+  └────────────┘   └───────────────┘
+    sees a person</pre>
       </a>
     </div>
 
@@ -77,15 +70,10 @@
       <a href="/blog/next-word-trick/">The whole trick</a>
       <p>It guesses the next word. That's the entire machine.</p>
       <a class="thumb" href="/blog/next-word-trick/" aria-hidden="true">
-      <svg viewBox="0 0 600 120" width="100%" role="img" aria-label="One word cycles back into the machine">
-        <rect x="30" y="40" width="140" height="40" rx="8" fill="var(--soft)"/>
-        <text x="100" y="65" text-anchor="middle" font-size="14" fill="var(--fg)">next-word picker</text>
-        <path d="M170 60 h60 a12 12 0 0 1 12 12 v25 a10 10 0 0 0 10 10 h40" fill="none" stroke="var(--muted)" marker-end=""/>
-        <text x="330" y="65" font-size="14" fill="var(--fg)">"cat"</text>
-        <path d="M430 65 h30" fill="none" stroke="var(--muted)"/>
-        <text x="470" y="65" font-size="14" fill="var(--muted)">again, for hours</text>
-        <circle cx="330" cy="65" r="6" fill="var(--fg)"/>
-      </svg>
+<pre>  ┌──────────────┐
+  │ next-word    │ → "cat" → again, for hours
+  │ picker       │
+  └──────────────┘</pre>
       </a>
     </div>
 
