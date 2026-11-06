@@ -117,7 +117,7 @@ def test_classic_cli_matches_main_baseline_across_fifteen_steps(tmp_path: Path) 
         try:
             pane.launch()
             assert pane.ready(), f"01_startup: no status bar:\n{pane.screen()}"
-            s.expect("01_startup", ["Welcome to Hermes Agent!", "Session:", PROMPT], s.capture("01_startup", scrollback=True))
+            s.expect("01_startup", ["Welcome to Aa!", "Session:", PROMPT], s.capture("01_startup", scrollback=True))
 
             pane.submit("STEP2 please show me some markdown")
             assert pane.wait(["End of STEP2 reply."], 60), pane.screen()

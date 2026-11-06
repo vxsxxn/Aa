@@ -1813,7 +1813,7 @@ def test_oauth_system_prompt_sanitizer_preserves_docs_url():
             {
                 "role": "system",
                 "content": (
-                    "Hermes Agent by Nous Research uses hermes-agent skills. "
+                    "Aa by Nous Research uses hermes-agent skills. "
                     "Docs: https://hermes-agent.nousresearch.com/docs ; "
                     "interpreter ~/.hermes/hermes-agent/venv/bin/python ; "
                     "source github.com/NousResearch/hermes-agent ; mail hermes-agent@example.com ; "

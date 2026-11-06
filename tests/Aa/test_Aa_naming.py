@@ -60,7 +60,7 @@ class NamingTestCase(unittest.TestCase):
         self.offer("Sparky")
         behavior = " Be direct: " in self.soul.read_text(encoding="utf-8")
         self.assertTrue(behavior)
-        self.assertNotIn("Hermes Agent,", self.soul.read_text(encoding="utf-8").splitlines()[0])
+        self.assertNotIn("Aa,", self.soul.read_text(encoding="utf-8").splitlines()[0])
 
     def test_long_name_is_capped(self):
         stamped = self.offer("x" * 100)

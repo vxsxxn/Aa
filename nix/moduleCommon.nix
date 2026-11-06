@@ -234,7 +234,7 @@ let
       defaultWorkingDirectoryText,
     }:
     {
-      enable = lib.mkEnableOption "Hermes Agent";
+      enable = lib.mkEnableOption "Aa";
 
       # ── Package ────────────────────────────────────────────────────────
       package = mkOption {
@@ -1054,9 +1054,9 @@ let
   backendDescription =
     cfg:
     if cfg.backend.mode == "dashboard" then
-      "Hermes Agent web dashboard and desktop backend"
+      "Aa web dashboard and desktop backend"
     else
-      "Hermes Agent backend for Hermes Desktop";
+      "Aa backend for Hermes Desktop";
 
   # The environment that each Hermes process needs, from either module.
   #

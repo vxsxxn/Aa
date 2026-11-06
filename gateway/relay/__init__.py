@@ -241,10 +241,10 @@ def relay_display_name() -> Optional[str]:
         except Exception:
             value = ""
         # The stock brand is identical on every default install: forwarding it would
-        # prefix every reply "**Hermes Agent:**" and shadow the connector's
+        # prefix every reply "**Aa:**" and shadow the connector's
         # linked-owner fallback, which actually disambiguates. Only a customized
         # name is forwarded.
-        if value == "Hermes Agent":
+        if value == "Aa":
             value = ""
     # Mirror the connector's ingest sanitization (trim + 64-char cap).
     return value[:64] or None

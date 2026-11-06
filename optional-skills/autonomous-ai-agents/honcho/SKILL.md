@@ -2,7 +2,7 @@
 name: honcho
 description: Configure and troubleshoot Honcho memory for Hermes.
 version: 2.0.0
-author: Hermes Agent
+author: Aa
 license: MIT
 platforms: [linux, macos, windows]
 metadata:

@@ -2,7 +2,7 @@
 name: actual-setup
 description: Set up Actual Computer (actual.inc) inference in Hermes.
 version: 2.0.0
-author: shl0ms + Hermes Agent
+author: shl0ms + Aa
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
