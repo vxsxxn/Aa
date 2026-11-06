@@ -78,7 +78,7 @@ def _build_full_manifest(
 
 def slack_manifest_command(args) -> int:
     """Print or write a Slack app manifest JSON (flags documented in ``hermes_cli/main.py``)."""
-    name = getattr(args, "name", None) or "Hermes"
+    name = getattr(args, "name", None) or "Aa"
     description = getattr(args, "description", None) or "Your Hermes agent on Slack"
     long_description = getattr(args, "long_description", None)
     long_description_file = getattr(args, "long_description_file", None)

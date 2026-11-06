@@ -1,4 +1,4 @@
-"""Configuration management for Hermes Agent: config.yaml / .env loading, saving,
+"""Configuration management for Aa: config.yaml / .env loading, saving,
 validation, migration, and the ``hermes config`` command."""
 
 # Stale-module bridge — must run before ANY import below can bind a root-level symbol.

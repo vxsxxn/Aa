@@ -56,7 +56,7 @@ def _brand_glyph() -> tuple[str, str]:
     from hermes_cli.skin_engine import get_active_skin
     label = get_active_skin().get_branding("response_label", " ☤ Hermes ")
     parts = label.split(None, 1)
-    return (parts[0], parts[1].strip()) if len(parts) == 2 else ("☤", label.strip() or "Hermes")
+    return (parts[0], parts[1].strip()) if len(parts) == 2 else ("", label.strip() or "Aa")
 
 
 def prompt_glyph() -> str:
@@ -330,7 +330,7 @@ def _render_safely(render, cli) -> list:
         return render(cli)
     except Exception:  # health: allow BLE001 -- a render callback must never take down the app frame
         logger.debug("%s failed", render.__name__, exc_info=True)
-        return [("", f" {getattr(cli, 'model', '') or 'Hermes'}")]
+        return [("", f" {getattr(cli, 'model', '') or 'Aa'}")]
 
 
 def _status_line_fragments(cli) -> list:

@@ -917,9 +917,11 @@ def _build_compact_banner() -> str:
     dim_color = _color("banner_dim", "#B8860B")
 
     if (getattr(_skin, "name", "default") if _skin else "default") == "default":
-        tiny_line = "☤ NOUS HERMES"
+        from hermes_cli import PRODUCT_NAME
+        tiny_line = PRODUCT_NAME
     else:
-        tiny_line = _skin.get_branding("agent_name", "Hermes Agent") if _skin else "Hermes Agent"
+        from hermes_cli import PRODUCT_NAME
+        tiny_line = _skin.get_branding("agent_name", PRODUCT_NAME) if _skin else PRODUCT_NAME
     line1 = t("cli.render.banner_tagline", name=tiny_line)
 
     if os.environ.get("HERMES_FAST_STARTUP_BANNER") == "1":

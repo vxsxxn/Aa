@@ -1,4 +1,4 @@
-"""Shared constants for Hermes Agent.
+"""Shared constants for Aa (Hermes-engine paths still use hermes_* names).
 
 Import-safe, stdlib-only — importable from anywhere without circular-import risk.
 """

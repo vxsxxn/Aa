@@ -1,4 +1,4 @@
-"""``hermes debug`` debug tools for Hermes Agent."""
+"""``Aa debug`` debug tools."""
 
 import contextlib
 import datetime

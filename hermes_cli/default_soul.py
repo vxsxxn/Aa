@@ -31,8 +31,8 @@ DEFAULT_SOUL_MD = IDENTITY_HEAD + (
 )
 
 _SCAFFOLD_HEAD = (
-    "# Hermes Agent Persona\n\n<!--\nThis file defines the agent's personality and tone.\n"
-    "The agent will embody whatever you write here.\nEdit this to customize how Hermes communicates with you.\n\n"
+    "# Aa Persona\n\n<!--\nThis file defines the agent's personality and tone.\n"
+    "The agent will embody whatever you write here.\nEdit this to customize how Aa communicates with you.\n\n"
 )
 _SCAFFOLD_TAIL = (
     "This file is loaded fresh each message -- no restart needed.\n"

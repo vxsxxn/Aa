@@ -1,6 +1,6 @@
-# Contributing to Hermes Agent
+# Contributing to Aa
 
-Thank you for contributing to Hermes Agent! This guide covers everything you need: setting up your dev environment, understanding the architecture, deciding what to build, and getting your PR merged.
+Thank you for contributing to Aa (fork of Hermes Agent by Nous Research)! This guide covers everything you need: setting up your dev environment, understanding the architecture, deciding what to build, and getting your PR merged.
 
 ---
 
