@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>It's not a person. Why does it feel like one? · Learn AI</title>
-  <meta name="description" content="We treat AI like a person — saying please, getting angry, trusting it. Why that feeling happens, and why AI is a tool, not a being. Lesson 1 of the Learn AI series.">
+  <title>Why it feels like a person · Learn AI</title>
+  <meta name="description" content="It talks, so your brain files it under 'person'. One diagram, a few sentences.">
   <style>
     :root {
       color-scheme: light dark;
@@ -19,7 +19,7 @@
     }
     body { margin:0; background:var(--bg); color:var(--fg);
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-      font-size:16px; line-height:1.65; }
+      font-size:16px; line-height:1.6; }
     a { color:var(--fg); text-underline-offset:3px; }
     a:hover { opacity:0.7; }
     .wrap { width:min(680px,calc(100% - 2rem)); margin:0 auto; }
@@ -30,12 +30,12 @@
     .brand { font-weight:700; text-decoration:none; }
     .nav-links a { margin-left:1.1rem; text-decoration:none; font-size:.95rem; }
     .kicker { color:var(--muted); margin:2.5rem 0 .4rem; font-size:.9rem; }
-    h1 { font-size:2rem; letter-spacing:-0.02em; margin:0 0 1.5rem; }
-    h2 { font-size:1.25rem; margin:2.2rem 0 .6rem; }
-    p { margin:.8rem 0; }
+    h1 { font-size:2rem; letter-spacing:-0.02em; margin:0 0 1rem; }
+    p { margin:.9rem 0; }
     em, i { color:var(--muted); }
-    .box { background:var(--soft); border:1px solid var(--line); border-radius:12px;
-      padding:1rem 1.2rem; margin:1.4rem 0; }
+    .diagram { background:var(--card); border:1px solid var(--line); border-radius:12px;
+      padding:1rem; margin:1.6rem 0; }
+    .cap { color:var(--muted); font-size:.95rem; }
     .next { border-top:1px solid var(--line); margin-top:3rem; padding-top:1.2rem; }
     footer { border-top:1px solid var(--line); margin-top:3.5rem; padding:2rem 0 3rem;
       color:var(--muted); font-size:.9rem; }
@@ -46,7 +46,6 @@
     <div class="wrap nav-inner">
       <a class="brand" href="/">Aa</a>
       <nav class="nav-links" aria-label="Primary">
-        <a href="/">Home</a>
         <a href="/blog/">Learn AI</a>
         <a href="https://github.com/vxsxxn/Aa">GitHub</a>
       </nav>
@@ -54,37 +53,41 @@
   </header>
 
   <main class="wrap">
-    <p class="kicker">Lesson 1 · November 7, 2026 · Learn AI series</p>
-    <h1>It's not a person. Why does it feel like one?</h1>
+    <p class="kicker">Lesson 1 · Learn AI</p>
+    <h1>Why it feels like a person</h1>
 
-    <p>Here's a misperception almost everyone falls into — including people who know better. We say "please" to a chatbot. We feel annoyed when it gets something wrong, the same way we'd feel annoyed at a careless coworker. We hand it our problems and trust its answer like advice from a friend. Some people thank it. Some argue with it for hours.</p>
+    <div class="diagram">
+      <svg viewBox="0 0 640 300" width="100%" role="img" aria-label="Diagram: brain and product both feed the person feeling; underneath, a machine that only passes words through">
+        <text x="110" y="40" text-anchor="middle" font-size="15" fill="var(--fg)" font-weight="600">your brain</text>
+        <rect x="20" y="55" width="180" height="70" rx="10" fill="var(--soft)" stroke="var(--line)"/>
+        <text x="110" y="86" text-anchor="middle" font-size="13" fill="var(--muted)">one program for</text>
+        <text x="110" y="106" text-anchor="middle" font-size="13" fill="var(--muted)">language = people</text>
 
-    <p>None of that is about what AI is. It's about what our brains do.</p>
+        <text x="530" y="40" text-anchor="middle" font-size="15" fill="var(--fg)" font-weight="600">the product</text>
+        <rect x="440" y="55" width="180" height="70" rx="10" fill="var(--soft)" stroke="var(--line)"/>
+        <text x="530" y="86" text-anchor="middle" font-size="13" fill="var(--muted)">"I'd love to help"</text>
+        <text x="530" y="106" text-anchor="middle" font-size="13" fill="var(--muted)">person-shaped wording</text>
 
-    <h2>Your brain has one tool for this job</h2>
-    <p>Humans have exactly one mental system for handling language, and that system was built for conversation with other people. Fluent, back-and-forth, responsive language is so deeply tied to personhood that our minds can't process it any other way. When something produces fluent conversation, the "talking to a person" program in your head runs automatically — whether you want it to or not.</p>
+        <path d="M110 125 v30" stroke="var(--muted)" fill="none"/>
+        <path d="M530 125 v30" stroke="var(--muted)" fill="none"/>
 
-    <p>That's why a text prediction machine triggers genuine social feelings. Your brain isn't naive and it isn't broken; it's running the only pattern it has. Humans also talk to cars and get angry at video games. Language just turns that switch on hardest.</p>
+        <rect x="220" y="160" width="200" height="56" rx="28" fill="none" stroke="var(--fg)" stroke-width="1.6"/>
+        <text x="320" y="194" text-anchor="middle" font-size="15" fill="var(--fg)">"it's a person" feeling</text>
 
-    <h2>And products make it worse on purpose</h2>
-    <p>The feeling isn't only from your side. AI products are designed to sit on the other end of it: first names, friendly opening lines, "How can I help you today?", replies written in a warm personal voice. Look at what a chatbot says about itself — "I think", "I'd love to help", "let me know if that works" — and notice how much of it is person-shaped wording. None of that is required by the technology. A chatbot could just as well print <em>"Task complete."</em> like a calculator. The human-like voice is a design choice, because the design choice works: people find it easier to use.</p>
-
-    <p>The cost of that choice is the misperception itself. A warm interface on a statistical engine makes the engine feel alive.</p>
-
-    <div class="box">
-      <strong>The accurate picture.</strong> AI is a tool — like a hammer, like a spreadsheet, like a search engine — just one that happens to accept language and produce language. It has no goals, no feelings, no interest in you, and no experience of having helped you. The warmth is texture in its output, not an inner life behind it. Tools don't deserve politeness or blame; they get used well or badly.
+        <path d="M320 220 v30" stroke="var(--muted)" fill="none"/>
+        <text x="320" y="272" text-anchor="middle" font-size="14" fill="var(--muted)">what's actually there:</text>
+        <text x="320" y="292" text-anchor="middle" font-size="14" fill="var(--fg)" font-weight="600">a machine that takes words in, puts words out</text>
+      </svg>
     </div>
 
-    <h2>Why this matters in practice</h2>
-    <p>Treating a tool like a person isn't just a philosophical slip — it changes decisions. People trust a confident-sounding answer more than a correct one from a blunt source. People assume it "understood" them and skip checking. People hesitate to give it odd instructions, as if they'd be bothering it. And companies sometimes sell "personality" as if it were capability.</p>
+    <p class="cap">Your brain has exactly one program for fluent language, and it says "person". You can't turn it off — you also get angry at video games.</p>
 
-    <p>A useful habit: judge it the way you'd judge any tool — by what it does, not how it talks. Blunt output is fine. Verifying answers is normal use, not rudeness. And when it says "I", treat that the way you'd treat a wall clock that says it's "tired" — a figure of speech built into the product.</p>
+    <p class="cap">The wording on the right is a design choice, not a sign of life. A calculator could say "I'd love to". It doesn't, so nobody hugs one.</p>
 
-    <h2>Where this is going</h2>
-    <p>Next lesson pulls the curtain further back. The same machine that talks like your friend is running one very simple task under the hood — and once you see what that task is, the person illusion gets a lot harder to maintain.</p>
+    <p class="cap"><strong>Takeaway:</strong> judge it like any tool — by what it does, not how it talks. Verifying its answers is normal use, not rudeness.</p>
 
     <div class="next">
-      Next: <a href="/blog/next-word-trick/">The whole thing is a next-word guess</a> · <a href="/blog/">All lessons</a>
+      Next: <a href="/blog/next-word-trick/">The whole trick</a> · <a href="/blog/">All lessons</a>
     </div>
   </main>
 

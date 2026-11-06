@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The whole thing is a next-word guess · Learn AI</title>
-  <meta name="description" content="The misperception: something magical is inside a chatbot. The fact: one extremely good word-prediction trick, at scale. Lesson 2 of the Learn AI series.">
+  <title>The whole trick · Learn AI</title>
+  <meta name="description" content="No magic inside — one very good next-word guess, repeated. One diagram, a few sentences.">
   <style>
     :root {
       color-scheme: light dark;
@@ -19,7 +19,7 @@
     }
     body { margin:0; background:var(--bg); color:var(--fg);
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-      font-size:16px; line-height:1.65; }
+      font-size:16px; line-height:1.6; }
     a { color:var(--fg); text-underline-offset:3px; }
     a:hover { opacity:0.7; }
     .wrap { width:min(680px,calc(100% - 2rem)); margin:0 auto; }
@@ -30,12 +30,12 @@
     .brand { font-weight:700; text-decoration:none; }
     .nav-links a { margin-left:1.1rem; text-decoration:none; font-size:.95rem; }
     .kicker { color:var(--muted); margin:2.5rem 0 .4rem; font-size:.9rem; }
-    h1 { font-size:2rem; letter-spacing:-0.02em; margin:0 0 1.5rem; }
-    h2 { font-size:1.25rem; margin:2.2rem 0 .6rem; }
-    p { margin:.8rem 0; }
+    h1 { font-size:2rem; letter-spacing:-0.02em; margin:0 0 1rem; }
+    p { margin:.9rem 0; }
     em, i { color:var(--muted); }
-    .box { background:var(--soft); border:1px solid var(--line); border-radius:12px;
-      padding:1rem 1.2rem; margin:1.4rem 0; }
+    .diagram { background:var(--card); border:1px solid var(--line); border-radius:12px;
+      padding:1rem; margin:1.6rem 0; }
+    .cap { color:var(--muted); font-size:.95rem; }
     .next { border-top:1px solid var(--line); margin-top:3rem; padding-top:1.2rem; }
     footer { border-top:1px solid var(--line); margin-top:3.5rem; padding:2rem 0 3rem;
       color:var(--muted); font-size:.9rem; }
@@ -46,7 +46,6 @@
     <div class="wrap nav-inner">
       <a class="brand" href="/">Aa</a>
       <nav class="nav-links" aria-label="Primary">
-        <a href="/">Home</a>
         <a href="/blog/">Learn AI</a>
         <a href="https://github.com/vxsxxn/Aa">GitHub</a>
       </nav>
@@ -54,42 +53,41 @@
   </header>
 
   <main class="wrap">
-    <p class="kicker">Lesson 2 · November 8, 2026 · Learn AI series</p>
-    <h1>The whole thing is a next-word guess</h1>
+    <p class="kicker">Lesson 2 · Learn AI</p>
+    <h1>The whole trick</h1>
 
-    <p>Chatbots read your question, reason through your problem, write essays and debug code — so it's natural to imagine something sophisticated and magical must be going on inside. A thinking engine. A digital mind.</p>
+    <div class="diagram">
+      <svg viewBox="0 0 640 280" width="100%" role="img" aria-label="Diagram: a loop that appends one guessed word and repeats">
+        <rect x="40" y="90" width="180" height="70" rx="10" fill="var(--soft)" stroke="var(--line)"/>
+        <text x="130" y="120" text-anchor="middle" font-size="14" fill="var(--fg)">the machine:</text>
+        <text x="130" y="142" text-anchor="middle" font-size="13" fill="var(--muted)">predict next word</text>
 
-    <p>The misperception is the sophistication of the machinery. Here's the fact: a chatbot is running one task, and it's a task so simple you could learn it today.</p>
+        <path d="M220 125 h70" stroke="var(--muted)" fill="none"/>
+        <text x="255" y="112" text-anchor="middle" font-size="12" fill="var(--muted)">picks one</text>
 
-    <p><strong>Given some text, guess the next word.</strong></p>
+        <rect x="290" y="90" width="110" height="70" rx="10" fill="none" stroke="var(--fg)" stroke-width="1.5"/>
+        <text x="345" y="131" text-anchor="middle" font-size="16" fill="var(--fg)">"cat"</text>
 
-    <p>"The cat sat on the ___" — "mat" is a good guess. "Quantum" is a bad one. That is the entire skill.</p>
+        <path d="M400 125 h60" stroke="var(--muted)" fill="none"/>
+        <text x="470" y="131" font-size="13" fill="var(--muted)">append it</text>
 
-    <h2>How can something that simple write code?</h2>
-    <p>Two things turn that party trick into ChatGPT: <em>practice</em> and <em>scale</em>.</p>
+        <path d="M130 90 v-40 h340 v36" fill="none" stroke="var(--muted)" stroke-dasharray="5 5"/>
+        <text x="320" y="36" text-anchor="middle" font-size="13" fill="var(--muted)">now "cat" is in the text — go again</text>
+        <text x="470" y="66" font-size="13" fill="var(--muted)">↻ thousands of times</text>
 
-    <p>First, it wasn't practiced on a few sentences. It was practiced on an enormous slice of the internet — billions of pages of books, articles, forums and code — doing nothing but guessing the next word, getting corrected, guessing again, billions of times.</p>
-
-    <p>Second, to be <em>good</em> at that game across all that text, guessing isn't enough. Try it yourself: predict the next word of "the function returns the sum of the two ___". To guess well there, you need to understand the code. To guess the next word of a doctor's note, you need medical knowledge. To continue a joke, you need the joke's setup. The single task quietly forces the machine to absorb grammar, facts, reasoning patterns and common sense — because those are what good guessing is made of.</p>
-
-    <p>The understanding is real, but it's a side effect — like a tennis player's reflexes being a side effect of practicing serves, not something anyone programmed in.</p>
-
-    <h2>You've been watching it happen all along</h2>
-    <p>This explains two things you may have noticed without asking why.</p>
-
-    <p>Answers stream in word by word. The reply doesn't exist somewhere waiting to be sent — it's being produced right now, one guess at a time, each guess appending to the text so the next guess can follow. What you're watching is the machine thinking out loud, literally.</p>
-
-    <p>And no two answers come out the same. The system doesn't always pick the single best guess — it picks from the most likely ones, with some randomness. Same question, different roll, different words. That's why a chatbot can answer the same thing twice in two different styles.</p>
-
-    <div class="box">
-      <strong>Tie back to Lesson 1.</strong> This is the strongest argument that AI is a tool and not a person: everything you're talking to is the output of one word-guessing engine running very fast. A person does much more than predict words. The engine does nothing else. The "mind" you feel on the other end of the chat is texture in the word choices — impressive texture, but texture.
+        <text x="320" y="210" text-anchor="middle" font-size="14" fill="var(--muted)">every answer you've ever seen from it</text>
+        <text x="320" y="234" text-anchor="middle" font-size="15" fill="var(--fg)" font-weight="600">came out of this loop</text>
+      </svg>
     </div>
 
-    <h2>Next up</h2>
-    <p>If it's just guessing words, why does it sound like it understands <em>you</em> specifically — and why does it sometimes forget things from two messages ago? That's the context window, next lesson.</p>
+    <p class="cap">"The cat sat on the ___" → "mat". That's the entire skill. Trained on a huge amount of text, the guess gets scarily accurate — and accuracy at that scale <em>looks like</em> thinking.</p>
+
+    <p class="cap"><strong>Why it lies confidently:</strong> it's guessing the next word, not checking facts. A confident guess is still just a guess.</p>
+
+    <p class="cap"><strong>Ties back to Lesson 1:</strong> the "mind" you feel in chat is texture in the word choices. Impressive texture — but texture.</p>
 
     <div class="next">
-      Next: <a href="/blog/">The context window: its "memory" is a slot, not a mind</a> (in progress) · <a href="/blog/person-or-tool/">Lesson 1</a> · <a href="/blog/">All lessons</a>
+      Next: <a href="/blog/">All lessons</a>
     </div>
   </main>
 
