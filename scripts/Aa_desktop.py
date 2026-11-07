@@ -147,7 +147,7 @@ async function openSettings(){
     const r=await fetch('/settings');const s=await r.json();
     document.getElementById('sModel').value=s.model||'';
     if(s.mode)document.getElementById('sMode').value=s.mode;
-    if('allowlist' in s)document.getElementById('sAllow').value=(s.allowlist||[]).join('\n');
+    if('allowlist' in s)document.getElementById('sAllow').value=(s.allowlist||[]).join(String.fromCharCode(10));
     document.getElementById('sKey').value='';document.getElementById('sKey').placeholder=
       s.api_key_set?'Saved — leave blank to keep':'sk-or-…';
   }catch(e){document.getElementById('settingsMsg').textContent='load failed: '+e;}
@@ -206,12 +206,27 @@ def run_turn(message: str) -> str:
     except Exception as exc:  # engine deps missing where this server runs
         return _run_turn_subprocess(message, f"engine import failed ({exc}); used one-shot fallback")
 
+    # Load keys saved via the Settings UI (HERMES_HOME/.env) before the engine's
+    # first-run guard runs — it checks os.environ, not the .env file.
+    _env_path = os.path.join(_hermes_home(), ".env")
+    if os.path.isfile(_env_path):
+        for _line in open(_env_path):
+            _line = _line.strip()
+            if _line and not _line.startswith("#") and "=" in _line:
+                _k, _v = _line.split("=", 1)
+                os.environ.setdefault(_k.strip(), _v.strip())
+
+    # The engine's first-run guard calls sys.exit(1) when it thinks no key is
+    # configured — a SystemExit must not kill the request thread silently.
     parser, _subparsers, _chat = build_top_level_parser()
+
     args = parser.parse_args(["-z", message])
     out, err = io.StringIO(), io.StringIO()
     try:
         with contextlib.redirect_stdout(out), contextlib.redirect_stderr(err), _turn_lock:
             code = launch_from_args(args)
+    except SystemExit as exc:
+        return ("error: engine not configured yet — open ⚙ Settings and paste your OpenRouter API key")
     except Exception as exc:
         return f"error: engine turn failed ({exc})"
     reply = out.getvalue().strip()
@@ -246,6 +261,18 @@ _SETTINGS_KEY = "openrouter_api_key"
 
 def _hermes_home() -> str:
     return os.environ.get("HERMES_HOME") or os.path.join(os.path.expanduser("~"), ".aa")
+
+
+def _load_saved_env() -> None:
+    """Copy HERMES_HOME/.env keys into os.environ (once) for the engine."""
+    path = os.path.join(_hermes_home(), ".env")
+    if not os.path.isfile(path):
+        return
+    for line in open(path):
+        line = line.strip()
+        if line and not line.startswith("#") and "=" in line:
+            k, v = line.split("=", 1)
+            os.environ.setdefault(k.strip(), v.strip())
 
 
 def _config_path() -> str:
@@ -345,6 +372,7 @@ def _settings_post(self, payload: dict) -> None:
         return self._send(400, b'{"error":"nothing to save"}', "application/json")
     if api_key:
         _write_env_key(api_key)
+        os.environ["OPENROUTER_API_KEY"] = api_key
         try:
             from tools.secret_store import set as secret_set
             secret_set(_SETTINGS_KEY, api_key)
@@ -555,6 +583,11 @@ def _prewarm():
     the first real message pays only model latency, not 40s of cold start."""
     def go():
         _engine_state["state"] = "warming"
+        # Load keys saved via the Settings UI so the gateway daemon sees them.
+        try:
+            _load_saved_env()
+        except Exception:
+            pass
         try:
             from hermes_cli._parser import build_top_level_parser  # noqa: F401  (imports engine)
             from hermes_cli.gateway_runtime import ensure_gateway_runtime
@@ -573,6 +606,7 @@ def main():
     ap.add_argument("--port", type=int, default=0, help="port (default: pick free)")
     ap.add_argument("--no-open", action="store_true", help="don't open a browser")
     args = ap.parse_args()
+    _load_saved_env()
     _prewarm()
 
     port = args.port
