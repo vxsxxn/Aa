@@ -56,6 +56,57 @@
     <p class="lead">Notes from building an AI agent.</p>
 
     <div class="post">
+  <a href="/blog/cap-the-loop/">Stop the loop after ten steps</a>
+  <p>A confused agent can spin forever. Cap the loop.</p>
+  <a class="thumb" href="/blog/cap-the-loop/" aria-hidden="true"><pre>    step 3  retry_file("/tmp/log")
+       ...
+    step 40 retry_file("/tmp/log")
+  
+    same call. same error. every step.
+    each one: a bill, a second, a wasted turn.</pre></a>
+</div>
+<div class="post">
+  <a href="/blog/test-like-software/">Test your agent like software</a>
+  <p>Twenty fixed cases beat vibes every time.</p>
+  <a class="thumb" href="/blog/test-like-software/" aria-hidden="true"><pre>                                  → expected tool + args
+    change the prompt           run all 20
+    hope                        18 pass, 2 fail
+          ↓                              ↓
+    the bug is still there      the bug has a name</pre></a>
+</div>
+<div class="post">
+  <a href="/blog/when-tool-fails/">When a tool call fails</a>
+  <p>Return the error. Don't hide it, don't fake it.</p>
+  <a class="thumb" href="/blog/when-tool-fails/" aria-hidden="true"><pre>          ├── ok      → paste the output back
+          │
+          └── error   → paste the error back
+                        ("PermissionError: /tmp/log")
+  
+    what NOT to do:
+        catch it silently</pre></a>
+</div>
+<div class="post">
+  <a href="/blog/system-prompt/">The system prompt is the job description</a>
+  <p>Write it like you're onboarding a new hire.</p>
+  <a class="thumb" href="/blog/system-prompt/" aria-hidden="true"><pre>  
+    good: "You manage files in ~/notes.
+           Tools: list_files, read_file.
+           Ask before deleting anything.
+           If a path is ambiguous, name the
+           two options and stop."            </pre></a>
+</div>
+<div class="post">
+  <a href="/blog/pick-a-model/">Which model?</a>
+  <p>Start with the cheapest one that passes your tests.</p>
+  <a class="thumb" href="/blog/pick-a-model/" aria-hidden="true"><pre>          ▼
+    run them on model A
+          │
+          ├── passes → done. ship A.
+          │
+          └── fails   → try the bigger one,
+                        only for the failing cases</pre></a>
+</div>
+<div class="post">
       <a href="/blog/one-tool/">Give your agent one tool</a>
       <p>The model decides. Your code acts.</p>
       <a class="thumb" href="/blog/one-tool/" aria-hidden="true">
