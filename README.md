@@ -29,6 +29,18 @@ The name is small on purpose. There are a lot of AI agents; this is another alte
 
 ---
 
+## Desktop app — one file, one command
+
+Grab [install-aa.sh](install-aa.sh) (the one install file) and run it:
+
+```bash
+bash install-aa.sh
+```
+
+It downloads the code, sets everything up, and opens the Aa Desktop window in your browser. Paste your [OpenRouter API key](https://openrouter.ai/keys) in **⚙ Settings** and start chatting. Needs git + Python 3.11–3.14. Works on macOS and Linux.
+
+---
+
 ## Quick start (from this repo)
 
 ```bash

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Aa Desktop — lean local web UI for Aa.
 
-`Aa desktop` starts this: one stdlib HTTP server, one dark chat page.
+`Aa desktop` starts this: one stdlib HTTP server, one light chat page.
 Runs each turn in-process through the gateway engine (hermes_cli gateway
 path; a warm gateway daemon, one WS round trip per message). No frameworks.
 
@@ -31,12 +31,9 @@ PAGE = """<!doctype html>
 <html><head><meta charset="utf-8"><title>Aa</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
-  :root{--bg:#f7f7f7;--fg:#111;--muted:#5a5a5a;--line:#d8d8d8;
-  --card:#fff;--soft:#efefef;--panel:#fff;--aai:#efefef;
-  --me:#2b4c6f;--dim:#8a929b}
-  @media (prefers-color-scheme: dark){:root{
-  --bg:#0c0c0c;--fg:#f3f3f3;--muted:#9a9a9a;--line:#2a2a2a;
-  --card:#151515;--soft:#1c1c1c;--panel:#151515;--aai:#1c1c1c;--dim:#8a929b}}
+  :root{--bg:#fafaf8;--fg:#3a3a3a;--muted:#8a8a8a;--line:#e4e2de;
+  --card:#fff;--soft:#f0efec;--panel:#fdfdfc;--aai:#f0efec;
+  --me:#dcdcdc;--dim:#a3a3a3}
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--fg);
        font:15px/1.5 -apple-system,"Segoe UI",Roboto,sans-serif;
@@ -70,7 +67,7 @@ PAGE = """<!doctype html>
   textarea{flex:1;background:var(--soft);color:var(--fg);border:1px solid var(--line);
            border-radius:10px;padding:10px 12px;font:inherit;resize:none;height:44px}
   textarea:focus{outline:none;border-color:var(--fg)}
-  button{background:#2f6fb0;color:#fff;border:0;border-radius:10px;padding:0 18px;
+  button{background:#9c9c9c;color:#fff;border:0;border-radius:10px;padding:0 18px;
          font:inherit;font-weight:600;cursor:pointer}
   .hbtn{padding:6px 12px;margin-left:6px;font-size:14px}
   #modsList div{display:flex;align-items:center;gap:10px;padding:8px 4px;border-bottom:1px solid var(--soft)}
