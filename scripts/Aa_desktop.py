@@ -31,12 +31,17 @@ PAGE = """<!doctype html>
 <html><head><meta charset="utf-8"><title>Aa</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
-  :root{--bg:#111417;--panel:#1a1e23;--me:#2b4c6f;--aai:#24282e;--fg:#e6e9ec;--dim:#8a929b}
+  :root{--bg:#f7f7f7;--fg:#111;--muted:#5a5a5a;--line:#d8d8d8;
+  --card:#fff;--soft:#efefef;--panel:#fff;--aai:#efefef;
+  --me:#2b4c6f;--dim:#8a929b}
+  @media (prefers-color-scheme: dark){:root{
+  --bg:#0c0c0c;--fg:#f3f3f3;--muted:#9a9a9a;--line:#2a2a2a;
+  --card:#151515;--soft:#1c1c1c;--panel:#151515;--aai:#1c1c1c;--dim:#8a929b}}
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--fg);
        font:15px/1.5 -apple-system,"Segoe UI",Roboto,sans-serif;
        display:flex;flex-direction:column;height:100vh}
-  header{padding:10px 16px;background:var(--panel);border-bottom:1px solid #2a2f36;
+  header{padding:10px 16px;background:var(--panel);border-bottom:1px solid var(--line);
          font-weight:600;letter-spacing:.3px;display:flex;align-items:center}
   header small{color:var(--dim);font-weight:400;margin-left:8px}
   #gear{margin-left:auto;background:none;border:0;color:var(--dim);font-size:18px;
@@ -45,35 +50,37 @@ PAGE = """<!doctype html>
   .modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;
          align-items:center;justify-content:center;z-index:10}
   .modal.open{display:flex}
-  .modal .card{background:var(--panel);border:1px solid #2a2f36;border-radius:14px;
+  .modal .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;
                padding:20px;width:min(420px,92vw);display:flex;flex-direction:column;gap:12px}
   .modal h2{margin:0;font-size:16px}
   .modal label{color:var(--dim);font-size:12px;display:block;margin-bottom:4px}
-  .modal input{width:100%;background:#22262c;color:var(--fg);border:1px solid #2a2f36;
+  .modal input{width:100%;background:var(--soft);color:var(--fg);border:1px solid var(--line);
                border-radius:8px;padding:9px 11px;font:inherit}
-  .modal input:focus{outline:none;border-color:#3d6a96}
+  .modal input:focus{outline:none;border-color:var(--fg)}
   .modal .row{display:flex;gap:10px;justify-content:flex-end;margin-top:4px}
-  .modal .row button.secondary{background:#2a2f36}
+  .modal .row button.secondary{background:var(--line)}
   #settingsMsg{color:var(--dim);font-size:12px;min-height:1em}
   #log{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
   .m{max-width:78%;padding:9px 13px;border-radius:12px;white-space:pre-wrap;word-wrap:break-word}
   .me{align-self:flex-end;background:var(--me)}
-  .Aa{align-self:flex-start;background:var(--aai);border:1px solid #2a2f36}
+  .Aa{align-self:flex-start;background:var(--aai);border:1px solid var(--line)}
   .Aa.pending::after{content:"…";color:var(--dim);animation:bl 1s steps(2) infinite}
   @keyframes bl{50%{opacity:.3}}
-  form{display:flex;gap:8px;padding:12px;background:var(--panel);border-top:1px solid #2a2f36}
-  textarea{flex:1;background:#22262c;color:var(--fg);border:1px solid #2a2f36;
+  form{display:flex;gap:8px;padding:12px;background:var(--panel);border-top:1px solid var(--line)}
+  textarea{flex:1;background:var(--soft);color:var(--fg);border:1px solid var(--line);
            border-radius:10px;padding:10px 12px;font:inherit;resize:none;height:44px}
-  textarea:focus{outline:none;border-color:#3d6a96}
+  textarea:focus{outline:none;border-color:var(--fg)}
   button{background:#2f6fb0;color:#fff;border:0;border-radius:10px;padding:0 18px;
          font:inherit;font-weight:600;cursor:pointer}
   .hbtn{padding:6px 12px;margin-left:6px;font-size:14px}
-  #modsList div{display:flex;align-items:center;gap:10px;padding:8px 4px;border-bottom:1px solid #22262c}
+  #modsList div{display:flex;align-items:center;gap:10px;padding:8px 4px;border-bottom:1px solid var(--soft)}
   #modsList small{color:var(--dim)}
   button:disabled{opacity:.5;cursor:default}
+  #st{width:9px;height:9px;border-radius:50%;margin-left:10px;background:#666;flex:none}
+  #st.ready{background:#3ecf6e}#st.warming{background:#e6b23e}#st.degraded{background:#d05050}
 </style></head>
 <body>
-<header>Aa<small>desktop</small><button class="hbtn" id="modsBtn" title="Mods" onclick="openMods()">&#128268;</button><button class="hbtn" id="gear" title="Settings" onclick="openSettings()">&#9881;</button></header>
+<header>Aa<small>desktop</small><span id="st" title="checking engine…"></span><button class="hbtn" id="modsBtn" title="Mods" onclick="openMods()">&#128268;</button><button class="hbtn" id="gear" title="Settings" onclick="openSettings()">&#9881;</button></header>
 <div id="log"></div>
 <form id="f"><textarea id="t" placeholder="Message Aa…" autofocus></textarea><button>Send</button></form>
 <div id="modal" class="modal"><div class="card">
@@ -83,13 +90,13 @@ PAGE = """<!doctype html>
   <div><label>Model</label>
     <input id="sModel" placeholder="e.g. z-ai/glm-5.3-flash"></div>
   <div><label>Approval mode</label>
-    <select id="sMode" style="width:100%;background:#22262c;color:var(--fg);border:1px solid #2a2f36;border-radius:8px;padding:9px 11px;font:inherit">
+    <select id="sMode" style="width:100%;background:var(--soft);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:9px 11px;font:inherit">
       <option value="manual">manual — ask every time</option>
       <option value="smart">smart — only risky commands</option>
       <option value="off">off — never ask</option>
     </select></div>
   <div><label>Auto-approved commands (one pattern per line, e.g. git status*)</label>
-    <textarea id="sAllow" rows="4" style="width:100%;background:#22262c;color:var(--fg);border:1px solid #2a2f36;border-radius:8px;padding:9px 11px;font:inherit;font-family:monospace"></textarea></div>
+    <textarea id="sAllow" rows="4" style="width:100%;background:var(--soft);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:9px 11px;font:inherit;font-family:monospace"></textarea></div>
   <div id="settingsMsg"></div>
   <div class="row"><button type="button" class="secondary" onclick="closeSettings()">Cancel</button>
     <button type="button" onclick="saveSettings()">Save</button></div>
@@ -130,6 +137,9 @@ async function toggleMod(name,on,row){
     msgEl.textContent=d.error?('error: '+d.error):(on?'enabled.':'disabled.');
   }catch(e){msgEl.textContent='error: '+e;}
 }
+const st=document.getElementById('st');
+function poll(){fetch('/health').then(r=>r.json()).then(h=>{st.className=h.state;st.title='engine: '+h.state+(h.detail?' — '+h.detail:'')}).catch(()=>{st.className='degraded';st.title='engine unreachable'})}
+poll();setInterval(poll,5000);
 async function openSettings(){
   document.getElementById('modal').classList.add('open');
   document.getElementById('settingsMsg').textContent='';
@@ -175,6 +185,9 @@ f.onsubmit=async e=>{
 
 
 _turn_lock = threading.Lock()
+
+
+_engine_state = {"state": "starting", "detail": ""}  # updated by _prewarm
 
 
 def run_turn(message: str) -> str:
@@ -495,6 +508,8 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(body)
 
     def do_GET(self):
+        if self.path == "/health":
+            return self._send(200, json.dumps(_engine_state).encode(), "application/json")
         if self.path == "/settings":
             return _settings_get(self)
         if self.path == "/mods":
@@ -539,13 +554,16 @@ def _prewarm():
     """Start the engine imports + gateway daemon in the background at boot, so
     the first real message pays only model latency, not 40s of cold start."""
     def go():
+        _engine_state["state"] = "warming"
         try:
             from hermes_cli._parser import build_top_level_parser  # noqa: F401  (imports engine)
             from hermes_cli.gateway_runtime import ensure_gateway_runtime
             from hermes_constants import get_hermes_home
             ensure_gateway_runtime(get_hermes_home(), idle_exit=True)
+            _engine_state.update(state="ready", detail="gateway warm")
             print("Aa desktop engine warmed", flush=True)
         except Exception as exc:
+            _engine_state.update(state="degraded", detail=str(exc))
             print(f"Aa desktop prewarm skipped: {exc}", flush=True)
     threading.Thread(target=go, daemon=True).start()
 
