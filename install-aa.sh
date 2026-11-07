@@ -3,7 +3,7 @@
 # Usage:  bash install-aa.sh
 set -euo pipefail
 
-REPO_URL="https://github.com/vxsxxn/aa.git"
+REPO_URL="https://github.com/vxsxxn/Aa.git"
 BRANCH="aa"
 DEST="${HOME}/aa"
 
@@ -16,16 +16,8 @@ if ! command -v git >/dev/null 2>&1; then
   echo "git is required. On macOS run:  xcode-select --install   (then re-run this script)"
   exit 1
 fi
-
-PY="$(command -v python3 || true)"
-if [ -z "$PY" ]; then
-  echo "python3 (3.11–3.14) is required. Install it from https://www.python.org/downloads/ then re-run this script."
-  exit 1
-fi
-
-if ! "$PY" -c 'import sys; sys.exit(0 if (3,11)<=sys.version_info[:2]<(3,15) else 1)'; then
-  echo "python3 3.11–3.14 required; found $("$PY" -V 2>&1)."
-  echo "Install a matching version from https://www.python.org/downloads/ then re-run this script."
+if ! command -v curl >/dev/null 2>&1; then
+  echo "curl is required (it ships with macOS; on Linux install it with your package manager)."
   exit 1
 fi
 
@@ -38,13 +30,19 @@ else
   git clone --depth 1 --branch "$BRANCH" "$REPO_URL" "$DEST"
 fi
 
-# 3. Set up Python environment -------------------------------------------
-say "Setting up (first run downloads packages — may take a few minutes)"
-cd "$DEST"
-"$PY" -m venv .venv
-./.venv/bin/pip install --quiet --upgrade pip
-./.venv/bin/pip install --quiet -e .
+# 3. Make sure uv is available -------------------------------------------
+# uv sets up the Python environment; it can even fetch Python itself.
+if ! command -v uv >/dev/null 2>&1; then
+  say "Installing uv (small, local, user-level)"
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  export PATH="$HOME/.local/bin:$PATH"
+fi
 
-# 4. Launch ---------------------------------------------------------------
+# 4. Set up Python environment -------------------------------------------
+say "Setting up (first run downloads Python + packages — may take a few minutes)"
+cd "$DEST"
+uv sync --frozen
+
+# 5. Launch ---------------------------------------------------------------
 say "Starting Aa Desktop (your browser will open — paste your OpenRouter API key in ⚙ Settings)"
-exec ./scripts/Aa_desktop.py
+exec uv run --frozen scripts/Aa_desktop.py
