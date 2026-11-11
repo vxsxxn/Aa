@@ -1364,7 +1364,7 @@ The main pipeline above targets empirical ML papers. Other paper types require d
 
 ---
 
-## Aa Integration
+## Untitled Integration
 
 This skill is designed for the Hermes agent. It uses Hermes tools, delegation, scheduling, and memory for the full research lifecycle.
 

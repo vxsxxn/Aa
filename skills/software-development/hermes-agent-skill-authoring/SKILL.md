@@ -2,7 +2,7 @@
 name: hermes-agent-skill-authoring
 description: "Author in-repo SKILL.md files: frontmatter and structure."
 version: 2.0.0
-author: Aa
+author: Untitled
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
@@ -11,7 +11,7 @@ metadata:
     related_skills: [requesting-code-review]
 ---
 
-# Authoring Aa Skills (in-repo)
+# Authoring Untitled Skills (in-repo)
 
 ## Overview
 
@@ -58,7 +58,7 @@ Repo-standard shape (all fields expected, even where the validator doesn't enfor
 name: my-skill-name               # lowercase, hyphens, ≤64 chars (MAX_NAME_LENGTH)
 description: Concise capability statement, under sixty chars.
 version: 0.1.0                    # semver; new skills start at 0.1.0
-author: Real Name (github-handle), Aa
+author: Real Name (github-handle), Untitled
 license: MIT
 platforms: [linux, macos, windows]   # audit, don't guess — see Platform Gating
 metadata:
@@ -81,9 +81,9 @@ Bad: `Use when a user asks to monitor named competitors or companies for product
 
 ### `author` rules
 
-- Credit the **human first**, then "Aa" as secondary collaborator: `Ben Barclay (benbarclay), Aa`.
-- Never `author: Aa` alone for contributed skills — credit the human, not the tool, even (especially) when an agent drafted the text.
-- Maintainer-authored skills: `Teknium (teknium1), Aa`.
+- Credit the **human first**, then "Untitled" as secondary collaborator: `Ben Barclay (benbarclay), Untitled`.
+- Never `author: Untitled` alone for contributed skills — credit the human, not the tool, even (especially) when an agent drafted the text.
+- Maintainer-authored skills: `Teknium (teknium1), Untitled`.
 
 ### `related_skills` rules
 
@@ -187,7 +187,7 @@ A skill exists to make the agent's process more predictable — the agent reliab
 
 1. **Using `skill_manage(action='create')` for an in-repo skill.** It writes to `~/.hermes/skills/`, not the repo tree. Use `write_file`.
 2. **Trusting the validator's limits as the standard.** The validator allows 1024-char descriptions; review rejects anything over 60. The validator doesn't check `platforms:`, author format, tests, or docs — review does.
-3. **`author: Aa` on a contributed skill.** Credit the human first.
+3. **`author: Untitled` on a contributed skill.** Credit the human first.
 4. **Leading whitespace before `---`.** Validation fails on any leading blank line or BOM.
 5. **Description too generic or trigger buried past char 57.**
 6. **`related_skills` pointing at skills that don't exist in-repo** (user-local, planned, or in a sibling PR).

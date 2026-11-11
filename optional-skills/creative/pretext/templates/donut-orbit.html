@@ -171,7 +171,7 @@
 <div class="layer vignette"></div>
 <div class="layer fg-lens"></div>
 <div class="layer noise"><canvas id="noiseCanvas"></canvas></div>
-<div class="font-primer" aria-hidden="true">Aa Mondwest priming glyphs 0123456789</div>
+<div class="font-primer" aria-hidden="true">Untitled Mondwest priming glyphs 0123456789</div>
 
 <script type="module">
 import {
@@ -1454,8 +1454,8 @@ const FACES = [new FontFace("Mondwest", `url(${DS_CDN}/Mondwest-Regular.woff2) f
   try {
     const loaded = await Promise.all(FACES.map(f => f.load()));
     for (const f of loaded) document.fonts.add(f);
-    await document.fonts.load(BODY_FONT, "Aa");
-    await document.fonts.load(ASCII_FONT, "Aa");
+    await document.fonts.load(BODY_FONT, "Untitled");
+    await document.fonts.load(ASCII_FONT, "Untitled");
   } catch (err) {
     console.warn("DS font load failed, using fallbacks:", err);
   }

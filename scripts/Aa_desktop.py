@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Aa Desktop — lean local web UI for Aa.
+"""Untitled Desktop — lean local web UI for Untitled.
 
-`Aa desktop` starts this: one stdlib HTTP server, one light chat page.
+`Untitled desktop` starts this: one stdlib HTTP server, one light chat page.
 Runs each turn in-process through the gateway engine (hermes_cli gateway
 path; a warm gateway daemon, one WS round trip per message). No frameworks.
 
@@ -28,7 +28,7 @@ if ROOT not in sys.path:
     sys.path.insert(0, ROOT)  # engine imports (hermes_cli, agent) live at the repo root
 
 PAGE = """<!doctype html>
-<html><head><meta charset="utf-8"><title>Aa</title>
+<html><head><meta charset="utf-8"><title>Untitled</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
   :root{--bg:#fafaf8;--fg:#3a3a3a;--muted:#8a8a8a;--line:#e4e2de;
@@ -60,8 +60,8 @@ PAGE = """<!doctype html>
   #log{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
   .m{max-width:78%;padding:9px 13px;border-radius:12px;white-space:pre-wrap;word-wrap:break-word}
   .me{align-self:flex-end;background:var(--me)}
-  .Aa{align-self:flex-start;background:var(--aai);border:1px solid var(--line)}
-  .Aa.pending::after{content:"…";color:var(--dim);animation:bl 1s steps(2) infinite}
+  .Untitled{align-self:flex-start;background:var(--aai);border:1px solid var(--line)}
+  .Untitled.pending::after{content:"…";color:var(--dim);animation:bl 1s steps(2) infinite}
   @keyframes bl{50%{opacity:.3}}
   form{display:flex;gap:8px;padding:12px;background:var(--panel);border-top:1px solid var(--line)}
   textarea{flex:1;background:var(--soft);color:var(--fg);border:1px solid var(--line);
@@ -77,9 +77,9 @@ PAGE = """<!doctype html>
   #st.ready{background:#3ecf6e}#st.warming{background:#e6b23e}#st.degraded{background:#d05050}
 </style></head>
 <body>
-<header>Aa<small>desktop</small><span id="st" title="checking engine…"></span><button class="hbtn" id="modsBtn" title="Mods" onclick="openMods()">&#128268;</button><button class="hbtn" id="gear" title="Settings" onclick="openSettings()">&#9881;</button></header>
+<header>Untitled<small>desktop</small><span id="st" title="checking engine…"></span><button class="hbtn" id="modsBtn" title="Mods" onclick="openMods()">&#128268;</button><button class="hbtn" id="gear" title="Settings" onclick="openSettings()">&#9881;</button></header>
 <div id="log"></div>
-<form id="f"><textarea id="t" placeholder="Message Aa…" autofocus></textarea><button>Send</button></form>
+<form id="f"><textarea id="t" placeholder="Message Untitled…" autofocus></textarea><button>Send</button></form>
 <div id="modal" class="modal"><div class="card">
   <h2>Settings</h2>
   <div><label>OpenRouter API key</label>
@@ -113,7 +113,7 @@ async function openMods(){
   const list=document.getElementById('modsList');
   try{
     const r=await fetch('/mods');const d=await r.json();
-    list.innerHTML=d.mods.length?'':'<div><small>No mods found. Drop .py files in ~/.aa/mods/ (hooks: on_message, on_reply).</small></div>';
+    list.innerHTML=d.mods.length?'':'<div><small>No mods found. Drop .py files in ~/.untitled/mods/ (hooks: on_message, on_reply).</small></div>';
     for(const m of d.mods){
       const row=document.createElement('div');
       const cb=document.createElement('input');cb.type='checkbox';cb.checked=m.enabled;
@@ -168,7 +168,7 @@ f.onsubmit=async e=>{
   if(busy||!t.value.trim())return;
   busy=true;f.querySelector('button').disabled=true;
   add('me',t.value);
-  const bubble=add('Aa pending',''),msg=t.value;t.value='';
+  const bubble=add('Untitled pending',''),msg=t.value;t.value='';
   try{
     const r=await fetch('/send',{method:'POST',
       headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg})});
@@ -257,7 +257,7 @@ _SETTINGS_KEY = "openrouter_api_key"
 
 
 def _hermes_home() -> str:
-    return os.environ.get("HERMES_HOME") or os.path.join(os.path.expanduser("~"), ".aa")
+    return os.environ.get("HERMES_HOME") or os.path.join(os.path.expanduser("~"), ".untitled")
 
 
 def _load_saved_env() -> None:
@@ -591,15 +591,15 @@ def _prewarm():
             from hermes_constants import get_hermes_home
             ensure_gateway_runtime(get_hermes_home(), idle_exit=True)
             _engine_state.update(state="ready", detail="gateway warm")
-            print("Aa desktop engine warmed", flush=True)
+            print("Untitled desktop engine warmed", flush=True)
         except Exception as exc:
             _engine_state.update(state="degraded", detail=str(exc))
-            print(f"Aa desktop prewarm skipped: {exc}", flush=True)
+            print(f"Untitled desktop prewarm skipped: {exc}", flush=True)
     threading.Thread(target=go, daemon=True).start()
 
 
 def main():
-    ap = argparse.ArgumentParser(description="Aa Desktop — lean local web UI")
+    ap = argparse.ArgumentParser(description="Untitled Desktop — lean local web UI")
     ap.add_argument("--port", type=int, default=0, help="port (default: pick free)")
     ap.add_argument("--no-open", action="store_true", help="don't open a browser")
     args = ap.parse_args()
@@ -610,7 +610,7 @@ def main():
     srv = ThreadingHTTPServer(("127.0.0.1", port if port else 0), Handler)
     port = srv.server_address[1]
     url = f"http://127.0.0.1:{port}"
-    print(f"Aa desktop listening on {url}", flush=True)
+    print(f"Untitled desktop listening on {url}", flush=True)
     if not args.no_open:
         threading.Timer(0.5, lambda: webbrowser.open(url)).start()
     try:

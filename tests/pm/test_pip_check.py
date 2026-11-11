@@ -217,8 +217,8 @@ def test_streamed_check_still_sees_failures_ahead_of_a_long_expected_report(tmp_
 
     overridden = [f"shared_dep_{index:02d}" for index in range(30)]
     source, env = _overridden_project(tmp_path, overridden,
-                                      extra_wheels=[("aa_parent", ["aa-dep==1.0"]), ("aa_dep", [])],
-                                      extra_dependencies=["aa-parent==1.0"])
+                                      extra_wheels=[("aa_parent", ["untitled-dep==1.0"]), ("aa_dep", [])],
+                                      extra_dependencies=["untitled-parent==1.0"])
     out = tmp_path / "environment"
     build_environment(explicit=True, source=source, python=Path(sys.executable), out=out,
                       cache=tmp_path / "cache", env=env, offline=True, frozen=True)
@@ -227,5 +227,5 @@ def test_streamed_check_still_sees_failures_ahead_of_a_long_expected_report(tmp_
 
     environment = managed_environment(out, python=Path(sys.executable), cache=tmp_path / "cache",
                                       env=env, offline=True, explicit=True, output=io.StringIO())
-    with pytest.raises(InstallError, match="requires `aa-dep==1.0`, but it's not installed"):
+    with pytest.raises(InstallError, match="requires `untitled-dep==1.0`, but it's not installed"):
         environment.check(source / "uv.lock")

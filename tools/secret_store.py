@@ -7,7 +7,7 @@ Two backends, tried in order:
      ``.vaultkey`` file (chmod 600). Clearly labeled second-best — no keychain, e.g.
      a headless Linux box or WSL without a secret service.
 
-Storage layout (keyring): service ``aa-agent``, account ``<name>``.
+Storage layout (keyring): service ``untitled-agent``, account ``<name>``.
 Layout (file): ``<profile>/secrets.enc`` (Fernet tokens, one per line, JSON payload)
              + ``<profile>/secrets.key`` (random 32-byte key, chmod 600).
 
@@ -30,7 +30,7 @@ from typing import List, Optional
 
 _logger = __import__("logging").getLogger(__name__)
 
-_SERVICE = "aa-agent"
+_SERVICE = "untitled-agent"
 _lock = threading.Lock()
 
 
@@ -58,7 +58,7 @@ def _profile_dir() -> Path:
     root = os.environ.get("HERMES_HOME") or os.environ.get("AA_HOME")
     if root:
         return Path(root)
-    return Path.home() / ".aa"
+    return Path.home() / ".untitled"
 
 
 def _file_paths() -> tuple:

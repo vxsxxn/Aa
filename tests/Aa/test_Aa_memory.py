@@ -1,6 +1,6 @@
 """Unit tests for scripts/Aa_memory.py — memory consolidation.
 
-Run directly:  python3 -m unittest tests.Aa.test_Aa_memory -v
+Run directly:  python3 -m unittest tests.Untitled.test_Aa_memory -v
 (or via scripts/Aa_selftest.py).
 """
 import importlib.util
@@ -14,12 +14,12 @@ from pathlib import Path
 
 
 def _find_repo() -> Path:
-    here = Path(__file__).resolve().parent          # tests/Aa
+    here = Path(__file__).resolve().parent          # tests/Untitled
     candidates = [here.parent.parent, Path.cwd(), *Path.cwd().parents]
     for cand in candidates:
         if (cand / "scripts" / "Aa_memory.py").exists():
             return cand.resolve()
-    raise RuntimeError("cannot locate Aa repo root (scripts/Aa_memory.py)")
+    raise RuntimeError("cannot locate Untitled repo root (scripts/Aa_memory.py)")
 
 
 REPO = _find_repo()

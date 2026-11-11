@@ -326,7 +326,7 @@ class TestBundleCacheRaces:
         from types import SimpleNamespace
 
         bundles_dir, _ = bundles_env
-        alpha = _make_bundle_yaml(bundles_dir, "alpha", ["aa"])
+        alpha = _make_bundle_yaml(bundles_dir, "alpha", ["untitled"])
         real_stat = pathlib.Path.stat
 
         def frozen_clock_stat(path, *args, **kwargs):
@@ -335,9 +335,9 @@ class TestBundleCacheRaces:
                                    st_ino=st.st_ino, st_mode=st.st_mode, st_mtime=self.T / 1e9)
 
         monkeypatch.setattr(pathlib.Path, "stat", frozen_clock_stat)
-        assert get_skill_bundles()["/alpha"]["skills"] == ["aa"]
+        assert get_skill_bundles()["/alpha"]["skills"] == ["untitled"]
 
-        alpha.write_text(alpha.read_text(encoding="utf-8").replace("aa", "bb"), encoding="utf-8")
+        alpha.write_text(alpha.read_text(encoding="utf-8").replace("untitled", "bb"), encoding="utf-8")
 
         assert get_skill_bundles()["/alpha"]["skills"] == ["bb"]
 

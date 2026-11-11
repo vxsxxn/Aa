@@ -39,7 +39,7 @@ def test_required_document_and_credit(skill, contributor):
     if contributor:
         assert contributor in metadata["author"]
     if skill != PINECONE:
-        assert not metadata["author"].startswith("Aa")
+        assert not metadata["author"].startswith("Untitled")
 
 
 @pytest.mark.parametrize("skill,references", [

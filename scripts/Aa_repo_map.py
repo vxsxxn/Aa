@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Aa repo map: aim edits at real symbols instead of fuzzy text.
+"""Untitled repo map: aim edits at real symbols instead of fuzzy text.
 
 Stdlib-only ast extraction of classes and functions with line spans, so a
 patch can name the symbol it targets (file + line range) instead of guessing
@@ -71,7 +71,7 @@ def summarize(files: list[Path]) -> list[dict]:
 
 
 def main(argv: list[str] | None = None) -> int:
-    ap = argparse.ArgumentParser(description="Aa repo map: classes/functions with line spans")
+    ap = argparse.ArgumentParser(description="Untitled repo map: classes/functions with line spans")
     ap.add_argument("paths", nargs="+", help="file(s) or directory to map")
     ap.add_argument("--json", action="store_true", help="machine-readable output")
     ap.add_argument("--summary", action="store_true", help="per-file counts only")

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Aa's self-edit helper: commit changes to this repo, safely.
+"""Untitled's self-edit helper: commit changes to this repo, safely.
 
 Usage:
   self_edit.py commit -m "message" PATH [PATH...]   scan + stage + test + commit
@@ -16,9 +16,9 @@ Rules enforced here:
     findings BLOCK the commit; soft C2-vocabulary hits only warn.
   - Python files must compile; JSON must parse; YAML must parse.
   - Commits touching source code (agent/, tools/, hermes_cli/, scripts/,
-    tests/ — *.py/*.sh) must pass the Aa self-test first
+    tests/ — *.py/*.sh) must pass the Untitled self-test first
     (scripts/Aa_selftest.py); a failing test blocks the commit.
-  - Commit messages get an "Aa:self-edit:" prefix automatically (unless present).
+  - Commit messages get an "Untitled:self-edit:" prefix automatically (unless present).
   - `revert` undoes the last commit in one step (git revert, no editor)
     and refuses on a dirty tree.
 """
@@ -40,7 +40,7 @@ except ImportError:  # yaml optional; skip yaml checks if missing
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from tools.threat_patterns import first_threat_message, scan_for_threats  # noqa: E402
 
-PREFIX = "Aa:self-edit:"
+PREFIX = "Untitled:self-edit:"
 REPO = Path(__file__).resolve().parent.parent
 SELFTEST = REPO / "scripts" / "Aa_selftest.py"
 SOUL = REPO / "SOUL.md"
@@ -158,17 +158,17 @@ def is_large_diff(paths: list[Path]) -> bool:
 
 
 def map_tests(paths: list[Path]) -> list[str]:
-    """tests/Aa modules whose text mentions a changed source file's stem.
+    """tests/Untitled modules whose text mentions a changed source file's stem.
 
-    Stem mention is the deliberate heuristic: every tests/Aa file names the
+    Stem mention is the deliberate heuristic: every tests/Untitled file names the
     module it covers (its own name or in its docstring/imports), so a text
     hit means coverage; no hit means no known coverage.
     """
     stems = [p.stem for p in paths]
     picked = []
-    for t in sorted((REPO / "tests" / "Aa").glob("test_*.py")):
+    for t in sorted((REPO / "tests" / "Untitled").glob("test_*.py")):
         if any(s in t.read_text(encoding="utf-8", errors="ignore") for s in stems):
-            picked.append(f"tests.Aa.{t.stem}")
+            picked.append(f"tests.Untitled.{t.stem}")
     return picked
 
 

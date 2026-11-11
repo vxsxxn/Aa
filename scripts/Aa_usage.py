@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Aa usage/cost report: read a Hermes state.db and print token/cost totals.
+"""Untitled usage/cost report: read a Hermes state.db and print token/cost totals.
 
 Usage:
   Aa_usage.py                          # auto-find state.db (HERMES_HOME or ~/.hermes)
@@ -7,7 +7,7 @@ Usage:
   Aa_usage.py -n 10                    # last 10 sessions instead of 25
   Aa_usage.py --csv                    # machine-readable CSV
 
-M4 hardening: Aa must always be able to answer "what did I spend?" without
+M4 hardening: Untitled must always be able to answer "what did I spend?" without
 leaving the terminal. Data comes from the sessions table that upstream
 hermes_state_usage keeps updated; nothing here writes to the database
 (it is opened read-only/immutable, safe while the agent is running).
@@ -90,7 +90,7 @@ def find_db() -> Path | None:
         os.environ.get("HERMES_STATE_DB"),
         os.path.join(os.environ.get("HERMES_HOME", ""), "state.db"),
         os.path.expanduser("~/.hermes/state.db"),
-        os.path.expanduser("~/.hermes/profiles/aa/state.db"),
+        os.path.expanduser("~/.hermes/profiles/untitled/state.db"),
     ):
         if p and Path(p).is_file():
             return Path(p)
@@ -156,7 +156,7 @@ def fmt(v: float) -> str:
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description="Aa usage/cost report (read-only)")
+    ap = argparse.ArgumentParser(description="Untitled usage/cost report (read-only)")
     ap.add_argument("--db", type=Path, default=None, help="path to state.db")
     ap.add_argument("-n", type=int, default=25, help="recent sessions to list (default 25)")
     ap.add_argument("--csv", action="store_true", help="print CSV instead of text")

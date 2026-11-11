@@ -2,7 +2,7 @@
 name: claude-code
 description: "Delegate coding to Claude Code CLI (features, PRs)."
 version: 2.2.1
-author: Aa + Teknium
+author: Untitled + Teknium
 license: MIT
 platforms: [linux, macos, windows]
 metadata:

@@ -31,9 +31,9 @@ def _build_parser() -> argparse.ArgumentParser:
 
     parser = argparse.ArgumentParser(
         prog="hermes-agent",
-        description="Legacy single-query Aa runner. For the full CLI use `Aa`.",
+        description="Legacy single-query Untitled runner. For the full CLI use `Untitled`.",
     )
-    parser.add_argument("--version", action="version", version=f"Aa v{__version__} ({__release_date__})")
+    parser.add_argument("--version", action="version", version=f"Untitled v{__version__} ({__release_date__})")
     parser.add_argument("prompt", nargs="*", help="query to run (same as --query)")
     parser.add_argument("--query", "-q", help="natural-language query to run")
     parser.add_argument("--model", default="", help="model id (provider/model)")

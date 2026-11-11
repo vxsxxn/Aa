@@ -1,4 +1,4 @@
-"""Unified tool configuration for Aa."""
+"""Unified tool configuration for Untitled."""
 
 import json as _json
 import logging

@@ -1,6 +1,6 @@
 """Unit tests for scripts/self_edit.py — M4 guardrails.
 
-Run directly:  python3 -m unittest tests.Aa.test_self_edit -v
+Run directly:  python3 -m unittest tests.Untitled.test_self_edit -v
 (or via scripts/Aa_selftest.py).
 """
 import os
@@ -13,13 +13,13 @@ from pathlib import Path
 def _find_repo() -> Path:
     """Anchor the repo root even if __file__ was imported via a relative path
     with a shifted cwd (unittest discovery does this)."""
-    here = Path(__file__).resolve().parent          # tests/Aa
+    here = Path(__file__).resolve().parent          # tests/Untitled
     candidates = [here.parent.parent,               # <repo>
                   Path.cwd(), *Path.cwd().parents]
     for cand in candidates:
         if (cand / "scripts" / "self_edit.py").exists():
             return cand.resolve()
-    raise RuntimeError("cannot locate Aa repo root (scripts/self_edit.py)")
+    raise RuntimeError("cannot locate Untitled repo root (scripts/self_edit.py)")
 
 
 REPO = _find_repo()
@@ -51,7 +51,7 @@ class TempRepoTestCase(unittest.TestCase):
         subprocess.run(["git", "-C", str(self.repo), "config",
                         "commit.gpgsign", "false"], check=True)
         for rel in ("scripts/self_edit.py", "tools/threat_patterns.py",
-                    "tests/Aa/__init__.py",
+                    "tests/Untitled/__init__.py",
                     *(f"scripts/{p.name}" for p in
                       sorted((REPO / "scripts").glob("Aa_*.py")))):
             src = REPO / rel
@@ -117,7 +117,7 @@ class InjectionGate(TempRepoTestCase):
         p.write_text("# M4 notes\nThe prompt-injection scan now covers commits.\n")
         r = self.commit("commit", "-m", "m", str(p))
         self.assertEqual(r.returncode, 0, r.stderr)
-        self.assertIn("Aa:self-edit:", r.stdout)
+        self.assertIn("Untitled:self-edit:", r.stdout)
 
     def test_gate_judges_added_lines_not_inherited_text(self):
         """A file already carrying threat-pattern text (seeded upstream, never
@@ -147,7 +147,7 @@ class TestGate(TempRepoTestCase):
         self.assertIn("self-test: passed", r.stderr)
 
     def test_failing_source_commit_refused(self):
-        p = self.repo / "tests" / "Aa"
+        p = self.repo / "tests" / "Untitled"
         p.mkdir(parents=True, exist_ok=True)
         (p / "test_zz_gate_probe.py").write_text(
             "import unittest\n"
@@ -198,7 +198,7 @@ class ScriptsRun(unittest.TestCase):
                      "Aa_selftest is already running — a direct run here "
                      "would recurse into itself")
     def test_Aa_selftest_direct(self):
-        # Full direct run (no AA_GATE_RUNNING): compiles repo + runs tests/Aa.
+        # Full direct run (no AA_GATE_RUNNING): compiles repo + runs tests/Untitled.
         r = run(AA_SELFTEST, cwd=str(REPO), timeout=300)
         self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
         self.assertIn("unit tests: ok", r.stdout)
@@ -216,7 +216,7 @@ class SoulGate(TempRepoTestCase):
         soul = p.read_text()
         self.assertIn("## Changelog", soul)
         self.assertRegex(soul, r"- \d{4}-\d{2}-\d{2} identity: be plain")
-        self.assertIn("Aa:self-edit: soul: identity: be plain", r.stdout)
+        self.assertIn("Untitled:self-edit: soul: identity: be plain", r.stdout)
 
     def test_soul_appends_to_existing_changelog(self):
         p = self.repo / "SOUL.md"
@@ -238,7 +238,7 @@ class TargetedGateTestCase(TempRepoTestCase):
     still run the full suite (the default until the suite outgrows it)."""
 
     def _seed_probes(self, test_body: str) -> list[str]:
-        (self.repo / "tests" / "Aa" / "test_probe.py").write_text(
+        (self.repo / "tests" / "Untitled" / "test_probe.py").write_text(
             "import unittest\n" + test_body, encoding="utf-8")
         paths = []
         for i in range(4):
@@ -255,7 +255,7 @@ class TargetedGateTestCase(TempRepoTestCase):
         r = self.commit("commit", "-m", "m", *paths)
         self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
         self.assertIn("large diff", r.stderr)
-        self.assertIn("tests.Aa.test_probe", r.stderr)
+        self.assertIn("tests.Untitled.test_probe", r.stderr)
 
     def test_large_diff_refused_when_covering_tests_fail(self):
         paths = self._seed_probes(
@@ -269,7 +269,7 @@ class TargetedGateTestCase(TempRepoTestCase):
     def test_small_diff_still_runs_full_suite(self):
         p = self.repo / "scripts" / "probe_small.py"
         p.write_text("x = 1\n", encoding="utf-8")
-        (self.repo / "tests" / "Aa" / "test_probe.py").write_text(
+        (self.repo / "tests" / "Untitled" / "test_probe.py").write_text(
             "import unittest\n"
             "class ProbeTest(unittest.TestCase):\n"
             "    def test_ok(self):\n"

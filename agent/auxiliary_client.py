@@ -873,7 +873,7 @@ _PROVIDERS_WITHOUT_VISION: frozenset = frozenset({"kimi-coding", "kimi-coding-cn
 # OpenRouter app attribution (always sent). `X-Title` is what the dashboard reads.
 _OR_HEADERS_BASE = {
     "HTTP-Referer": "https://hermes-agent.nousresearch.com",
-    "X-Title": "Aa",
+    "X-Title": "Untitled",
     "X-OpenRouter-Categories": "productivity,cli-agent",
 }
 
@@ -941,7 +941,7 @@ from hermes_cli.version_info import get_version_info
 
 _AI_GATEWAY_HEADERS = {
     "HTTP-Referer": "https://hermes-agent.nousresearch.com",
-    "X-Title": "Aa",
+    "X-Title": "Untitled",
     "User-Agent": f"HermesAgent/{get_version_info().base_version}",
 }
 

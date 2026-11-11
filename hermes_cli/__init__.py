@@ -1,8 +1,8 @@
-"""Aa CLI — unified command-line interface for Aa (forked from Hermes Agent)."""
+"""Untitled CLI — unified command-line interface for Untitled (forked from Hermes Agent)."""
 
 # User-facing product name. Internal modules may still say hermes_*; this is what
 # banners, --version, and status lines show.
-PRODUCT_NAME = "Aa"
+PRODUCT_NAME = "Untitled"
 
 import sys
 

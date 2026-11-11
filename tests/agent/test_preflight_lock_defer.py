@@ -61,7 +61,7 @@ def test_preflight_lock_skip_does_not_set_blocked_flag():
 
     def _lock_skip_compress(messages, _system_message, **_kwargs):
         calls.append(1)
-        agent._compression_skipped_due_to_lock = "pid=1:tid=2:agent=aa:nonce=bb"
+        agent._compression_skipped_due_to_lock = "pid=1:tid=2:agent=untitled:nonce=bb"
         return messages, "SYSTEM"
 
     agent._compress_context = _lock_skip_compress

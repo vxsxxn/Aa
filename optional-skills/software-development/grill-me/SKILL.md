@@ -2,7 +2,7 @@
 name: grill-me
 description: "Adversarial plan interview before implementation."
 version: 2.0.0
-author: "Rafael Zendron (rafaumeu) + Matt Pocock (mattpocock/skills, grilling) + Aa"
+author: "Rafael Zendron (rafaumeu) + Matt Pocock (mattpocock/skills, grilling) + Untitled"
 license: MIT
 platforms: [linux, macos, windows]
 metadata:

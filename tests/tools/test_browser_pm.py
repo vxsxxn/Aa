@@ -95,7 +95,7 @@ def test_missing_browser_refuses_lazy_install_even_with_npx(browser_store, monke
     monkeypatch.setenv("PATH", str(bin_dir))
     with pytest.raises(FileNotFoundError, match="agent-browser CLI not found"):
         install._find_agent_browser(validate=False)
-    with pytest.raises(FileNotFoundError, match="[Ll]azy|[Aa]utomatic|disabled"):
+    with pytest.raises(FileNotFoundError, match="[Ll]azy|[Untitled]utomatic|disabled"):
         install._find_agent_browser()
     assert not store.exists()
 

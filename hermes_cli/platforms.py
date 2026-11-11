@@ -1,4 +1,4 @@
-"""Shared platform registry for Aa."""
+"""Shared platform registry for Untitled."""
 
 from collections import OrderedDict
 from typing import NamedTuple

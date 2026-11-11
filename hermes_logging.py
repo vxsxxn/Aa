@@ -1,4 +1,4 @@
-"""Centralized logging setup for Aa.
+"""Centralized logging setup for Untitled.
 
 Log files: agent.log (INFO+, everything), errors.log (WARNING+), gateway.log (INFO+,
 gateway components; ``mode="gateway"``), gui.log (INFO+, dashboard/TUI-gateway;

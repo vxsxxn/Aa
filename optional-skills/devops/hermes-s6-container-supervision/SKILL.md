@@ -2,7 +2,7 @@
 name: hermes-s6-container-supervision
 description: Modify or debug s6 services in the Hermes Docker image.
 version: 1.0.0
-author: Aa
+author: Untitled
 license: MIT
 platforms: [linux]
 environments: [s6]
@@ -23,7 +23,7 @@ Load this skill when you're working on:
 - Modifying `cont-init.d` boot scripts (UID remap, volume seeding, profile reconciliation)
 - Changing the rendered run-script for per-profile gateways (Phase 4)
 
-If you're just running the Aa and want to use Docker, see `website/docs/user-guide/docker.md` instead.
+If you're just running the Untitled and want to use Docker, see `website/docs/user-guide/docker.md` instead.
 
 ## Architecture at a glance
 

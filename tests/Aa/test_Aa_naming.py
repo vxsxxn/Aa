@@ -1,4 +1,4 @@
-"""Aa naming: the agent answers to whatever the user calls it.
+"""Untitled naming: the agent answers to whatever the user calls it.
 
 Covers the first-run stamp (hermes_cli/agent_naming.py): the question wording
 settled in PLAN review is "What do you want to call me?" — the agent asks the
@@ -60,14 +60,14 @@ class NamingTestCase(unittest.TestCase):
         self.offer("Sparky")
         behavior = " Be direct: " in self.soul.read_text(encoding="utf-8")
         self.assertTrue(behavior)
-        self.assertNotIn("Aa,", self.soul.read_text(encoding="utf-8").splitlines()[0])
+        self.assertNotIn("Untitled,", self.soul.read_text(encoding="utf-8").splitlines()[0])
 
     def test_long_name_is_capped(self):
         stamped = self.offer("x" * 100)
         self.assertEqual(stamped, "x" * 40)
 
     def test_clean_name_strips_wrapping_quotes(self):
-        self.assertEqual(_clean_name('  "Aa" '), "Aa")
+        self.assertEqual(_clean_name('  "Untitled" '), "Untitled")
         self.assertEqual(_clean_name("''"), "")
 
     def test_customized_soul_is_never_touched(self):

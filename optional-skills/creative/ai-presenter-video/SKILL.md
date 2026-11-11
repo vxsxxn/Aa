@@ -2,7 +2,7 @@
 name: ai-presenter-video
 description: "Make a verified AI presenter video from script + image."
 version: 1.0.0
-author: cclank (https://github.com/cclank/lanshu-create-ai-presenter-video), ported by Aa
+author: cclank (https://github.com/cclank/lanshu-create-ai-presenter-video), ported by Untitled
 license: MIT
 platforms: [linux, macos]
 required_commands: [ffmpeg, ffprobe, python3]

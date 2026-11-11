@@ -2,7 +2,7 @@
 name: p5js
 description: "p5.js sketches: gen art, shaders, interactive, 3D."
 version: 1.0.0
-author: SHL0MS, Aa
+author: SHL0MS, Untitled
 license: MIT
 platforms: [linux, macos, windows]
 metadata:

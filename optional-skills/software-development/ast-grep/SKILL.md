@@ -2,7 +2,7 @@
 name: ast-grep
 description: "AST-aware structural code search and rewrite via ast-grep."
 version: 1.0.0
-author: Yeongyu Kim (code-yeongyu), adapted by Aa
+author: Yeongyu Kim (code-yeongyu), adapted by Untitled
 license: MIT
 platforms: [linux, macos, windows]
 metadata:

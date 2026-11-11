@@ -1,4 +1,4 @@
-# nix/hermes-agent.nix — Overridable Aa package
+# nix/hermes-agent.nix — Overridable Untitled package
 #
 # callPackage auto-wires nixpkgs args; flake inputs are passed explicitly.
 # Users override via:

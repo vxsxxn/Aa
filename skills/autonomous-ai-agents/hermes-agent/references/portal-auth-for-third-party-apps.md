@@ -41,7 +41,7 @@ There is **no general OAuth 2.0 authorization server**. There is no
 against. There is no shared cookie or session that browser-Portal-login
 extends to other apps on the same machine.
 
-What Aa has that *feels* like OAuth — `hermes login --provider nous`
+What Untitled has that *feels* like OAuth — `hermes login --provider nous`
 opening a browser, user signs in, token lands in `~/.hermes/auth.json` — is a
 **Hermes-specific browser flow**. Under the hood it produces a credential
 Hermes uses as a bearer. It is not a public OAuth provider that Karakeep et al.
@@ -122,7 +122,7 @@ When the user asks "can $APP use my Portal subscription":
    point each at a different endpoint.
 
 **Note on the Tool Gateway**: the "no separate accounts, no API key juggling"
-pitch in the Tool Gateway announcement is specifically about Aa's
+pitch in the Tool Gateway announcement is specifically about Untitled's
 *tools* (web search, browser, image gen, TTS) flowing through the Portal
 subscription when Hermes is configured to use Portal as its provider. It is
 **not** a claim that arbitrary third-party apps inherit Portal auth.

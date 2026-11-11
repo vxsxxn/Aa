@@ -517,7 +517,7 @@ def lerp_oklab(color_a, color_b, t_array):
     color_a, color_b: (R, G, B) tuples 0-255
     t_array: float32 array [0,1] — interpolation parameter per pixel.
     Returns (R, G, B) uint8 arrays."""
-    La, aa, ba = rgb_to_oklab(
+    La, untitled, ba = rgb_to_oklab(
         np.full_like(t_array, color_a[0], dtype=np.uint8),
         np.full_like(t_array, color_a[1], dtype=np.uint8),
         np.full_like(t_array, color_a[2], dtype=np.uint8))
@@ -526,14 +526,14 @@ def lerp_oklab(color_a, color_b, t_array):
         np.full_like(t_array, color_b[1], dtype=np.uint8),
         np.full_like(t_array, color_b[2], dtype=np.uint8))
     L = La + (Lb - La) * t_array
-    a = aa + (ab - aa) * t_array
+    a = untitled + (ab - untitled) * t_array
     b = ba + (bb - ba) * t_array
     return oklab_to_rgb(L, a, b)
 
 def lerp_oklch(color_a, color_b, t_array, short_path=True):
     """Interpolate through OKLCH (preserves chroma, smooth hue path).
     short_path: take the shorter arc around the hue wheel."""
-    La, aa, ba = rgb_to_oklab(
+    La, untitled, ba = rgb_to_oklab(
         np.full_like(t_array, color_a[0], dtype=np.uint8),
         np.full_like(t_array, color_a[1], dtype=np.uint8),
         np.full_like(t_array, color_a[2], dtype=np.uint8))
@@ -541,7 +541,7 @@ def lerp_oklch(color_a, color_b, t_array, short_path=True):
         np.full_like(t_array, color_b[0], dtype=np.uint8),
         np.full_like(t_array, color_b[1], dtype=np.uint8),
         np.full_like(t_array, color_b[2], dtype=np.uint8))
-    L1, C1, H1 = oklab_to_oklch(La, aa, ba)
+    L1, C1, H1 = oklab_to_oklch(La, untitled, ba)
     L2, C2, H2 = oklab_to_oklch(Lb, ab, bb)
     # Shortest hue path
     if short_path:

@@ -3,7 +3,7 @@
 # The shipped default name. First-run naming (hermes_cli/agent_naming.py) rewrites this slot in
 # the profile's SOUL.md to whatever the user answers. "untitled" is what an install answers to
 # when the user just presses Enter. Repo code stays generic — the name lives in each profile's
-# SOUL.md; "Aa" is the app's name, not the agent's.
+# SOUL.md; "Untitled" is the app's name, not the agent's.
 DEFAULT_AGENT_NAME = "untitled"
 IDENTITY_TAIL = "a lean, self-modifying coding and building agent — forked from Hermes Agent by Nous Research."
 IDENTITY_HEAD = f"You are {DEFAULT_AGENT_NAME}, {IDENTITY_TAIL}"
@@ -12,7 +12,7 @@ IDENTITY_HEAD = f"You are {DEFAULT_AGENT_NAME}, {IDENTITY_TAIL}"
 LEGACY_IDENTITY_HEAD = "You are Hermes Agent, built by Nous Research."
 # Identity line seeded by installs before the shipped default became "untitled"; first-run naming
 # upgrades it in place, exactly like the pre-rebrand seed above.
-LEGACY_AA_IDENTITY_HEAD = "You are Aa, a lean, self-modifying coding and building agent — forked from Hermes Agent by Nous Research."
+LEGACY_AA_IDENTITY_HEAD = "You are Untitled, a lean, self-modifying coding and building agent — forked from Hermes Agent by Nous Research."
 
 # Kept identical to agent/prompt_builder.py's DEFAULT_AGENT_IDENTITY: _ensure_default_soul_md()
 # seeds this into SOUL.md on first run, so it is the text virtually every real user gets. The old
@@ -31,8 +31,8 @@ DEFAULT_SOUL_MD = IDENTITY_HEAD + (
 )
 
 _SCAFFOLD_HEAD = (
-    "# Aa Persona\n\n<!--\nThis file defines the agent's personality and tone.\n"
-    "The agent will embody whatever you write here.\nEdit this to customize how Aa communicates with you.\n\n"
+    "# Untitled Persona\n\n<!--\nThis file defines the agent's personality and tone.\n"
+    "The agent will embody whatever you write here.\nEdit this to customize how Untitled communicates with you.\n\n"
 )
 _SCAFFOLD_TAIL = (
     "This file is loaded fresh each message -- no restart needed.\n"

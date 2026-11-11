@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Aa memory consolidation: inspect and prune a profile MEMORY.md to a budget.
+"""Untitled memory consolidation: inspect and prune a profile MEMORY.md to a budget.
 
 Memory files hold entries separated by lines that are exactly "§". Entries
 are appended over time, so the top of the file holds the oldest material.
@@ -29,7 +29,7 @@ def find_memory() -> Path | None:
     for cand in (
         os.environ.get("HERMES_HOME", "") and Path(os.environ["HERMES_HOME"]) / "MEMORY.md",
         Path.home() / ".hermes" / "MEMORY.md",
-        Path.home() / ".hermes" / "profiles" / "aa" / "MEMORY.md",
+        Path.home() / ".hermes" / "profiles" / "untitled" / "MEMORY.md",
     ):
         if cand and cand.is_file():
             return cand
@@ -106,7 +106,7 @@ def cmd_apply(mem: Path, budget: int) -> int:
 
 def main() -> int:
     ap = argparse.ArgumentParser(
-        description=(__doc__ or "Aa memory consolidation").splitlines()[0])
+        description=(__doc__ or "Untitled memory consolidation").splitlines()[0])
     ap.add_argument("--memory", type=Path, help="path to MEMORY.md (default: auto-detect)")
     ap.add_argument("--budget", type=int, default=DEFAULT_BUDGET,
                     help=f"character budget (default {DEFAULT_BUDGET})")

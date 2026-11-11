@@ -172,9 +172,9 @@ DEFAULT_AGENT_IDENTITY = (
 
 HERMES_AGENT_HELP_GUIDANCE = (
     # Injected only when skill_view exists AND the hermes-agent skill is installed (system_prompt.py slot
-    # resolution). Aa is a fork of Hermes Agent; keep hermes-agent skill as upstream engine docs.
-    "You run on Aa, a lean self-modifying coding agent forked from Hermes Agent (by Nous Research). "
-    "When the user needs help with Aa or the underlying Hermes engine — configuring, setting up, using, "
+    # resolution). Untitled is a fork of Hermes Agent; keep hermes-agent skill as upstream engine docs.
+    "You run on Untitled, a lean self-modifying coding agent forked from Hermes Agent (by Nous Research). "
+    "When the user needs help with Untitled or the underlying Hermes engine — configuring, setting up, using, "
     "extending, or troubleshooting — or when you need to understand your own features, tools, or "
     "capabilities, prefer this repo's PLAN.md, SOUL.md, AGENTS.md, and skills. The `hermes-agent` skill "
     "still documents Hermes engine workflows — load it with skill_view(name='hermes-agent') when you need "
@@ -183,8 +183,8 @@ HERMES_AGENT_HELP_GUIDANCE = (
 
 # Variant for sessions without the skills toolset (e.g. Blank Slate): naming skill_view() there would dangle.
 HERMES_AGENT_HELP_GUIDANCE_NO_SKILLS = (
-    "You run on Aa, a lean self-modifying coding agent forked from Hermes Agent (by Nous Research). "
-    "When the user needs help with Aa or the underlying Hermes engine — configuring, setting up, using, "
+    "You run on Untitled, a lean self-modifying coding agent forked from Hermes Agent (by Nous Research). "
+    "When the user needs help with Untitled or the underlying Hermes engine — configuring, setting up, using, "
     "extending, or troubleshooting — or when you need to understand your own features, tools, or "
     "capabilities, prefer this repo's PLAN.md, SOUL.md, and AGENTS.md. Point the user there "
     "(or read them yourself with your file tools)."

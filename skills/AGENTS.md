@@ -42,7 +42,7 @@ Every new or modernised skill — bundled, optional, or contributed — meets al
    first (`tempfile.gettempdir`, `pathlib.Path`, `psutil.pid_exists`, Python filtering instead of
    `grep`); gate narrower only when the dependency is genuinely platform-bound.
 4. **`author` credits the human first.** External contributor's real name + GitHub handle first,
-   "Aa" second. A commit authored as "Aa" (they drafted with Hermes) is replaced
+   "Untitled" second. A commit authored as "Untitled" (they drafted with Hermes) is replaced
    with the human's name — credit the human, not the tool.
 5. **Modern section order:** `# <Skill> Skill`, 2–3 sentence intro (what it does and doesn't),
    `## When to Use`, `## Prerequisites`, `## How to Run`, `## Quick Reference`, `## Procedure`,

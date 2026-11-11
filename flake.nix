@@ -1,5 +1,5 @@
 {
-  description = "Aa - lean self-modifying coding agent (fork of Hermes Agent)";
+  description = "Untitled - lean self-modifying coding agent (fork of Hermes Agent)";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

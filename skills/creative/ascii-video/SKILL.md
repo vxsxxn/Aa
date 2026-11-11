@@ -2,7 +2,7 @@
 name: ascii-video
 description: "ASCII video: convert video/audio to colored ASCII MP4/GIF."
 version: 1.0.0
-author: SHL0MS, Aa
+author: SHL0MS, Untitled
 license: MIT
 platforms: [linux, macos, windows]
 metadata:

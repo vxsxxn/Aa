@@ -1,4 +1,4 @@
-"""Aa Web UI server: FastAPI app assembly, auth/host middleware, ``start_server``.
+"""Untitled Web UI server: FastAPI app assembly, auth/host middleware, ``start_server``.
 
 Route handlers live in ``web_routers/``; their helpers live in the sibling
 ``web_server_<concern>`` modules and are re-imported here so ``web_server.<name>``

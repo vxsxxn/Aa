@@ -329,7 +329,7 @@ def release(commit: str, *, bump: str, repo: Path, remote: str, repository: str,
             url = (execute([
                 "gh", "release", "create", tag, "--repo", repository,
                 "--verify-tag", "--draft", "--notes-file", file.name,
-                "--title", f"Aa v{version}",
+                "--title", f"Untitled v{version}",
             ]) or "").strip()
         finally:
             os.unlink(file.name)

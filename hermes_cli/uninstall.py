@@ -1,4 +1,4 @@
-"""Aa Uninstaller."""
+"""Untitled Uninstaller."""
 
 import os
 import shutil
@@ -129,8 +129,8 @@ def remove_path_from_shell_configs():
             skip_next = False
             
             for line in content.split('\n'):
-                # Skip the "# Aa" comment and following line
-                if '# Aa' in line or '# hermes-agent' in line:
+                # Skip the "# Untitled" comment and following line
+                if '# Untitled' in line or '# hermes-agent' in line:
                     skip_next = True
                     continue
                 if skip_next and ('hermes' in line.lower() and 'PATH' in line):
@@ -786,7 +786,7 @@ def run_uninstall(args):
         return
 
     print()
-    _print_box("│            ☤ Aa Uninstaller                  │", Colors.MAGENTA)
+    _print_box("│            ☤ Untitled Uninstaller                  │", Colors.MAGENTA)
     print()
 
     # Show what will be affected
@@ -1138,7 +1138,7 @@ def _perform_uninstall(
     for line, col in _RELOAD_HINT[windows]:
         print(color(line, col) if col else line)
     print()
-    print("Thank you for using Aa!")
+    print("Thank you for using Untitled!")
     print()
 
 

@@ -2,7 +2,7 @@
 name: manim-video
 description: "Manim CE animations: 3Blue1Brown math/algo videos."
 version: 1.0.0
-author: SHL0MS, Aa
+author: SHL0MS, Untitled
 license: MIT
 platforms: [linux, macos, windows]
 metadata:

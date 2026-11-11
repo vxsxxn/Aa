@@ -3,7 +3,7 @@
 **Target:** {target_url}
 **Date:** {date}
 **Scope:** {scope_description}
-**Tester:** Aa (automated exploratory QA)
+**Tester:** Untitled (automated exploratory QA)
 
 ---
 

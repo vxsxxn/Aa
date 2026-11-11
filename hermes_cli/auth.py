@@ -1,4 +1,4 @@
-"""Multi-provider authentication system for Aa.
+"""Multi-provider authentication system for Untitled.
 
 - ``ProviderConfig`` / ``PROVIDER_REGISTRY`` describe every known inference provider.
 - The auth store (``~/.hermes/auth.json``) holds per-provider state, the credential pool and

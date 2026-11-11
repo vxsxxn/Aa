@@ -1,4 +1,4 @@
-"""Aa usage report: unused-code-paths section (scripts/Aa_usage.py --unused).
+"""Untitled usage report: unused-code-paths section (scripts/Aa_usage.py --unused).
 
 Report-only by contract: the report never removes anything, and a name it
 flags may still be reachable through dynamic registration — so the tests pin

@@ -10,8 +10,8 @@ from hermes_cli.subcommands._shared import add_accept_hooks_flag
 def build_acp_parser(subparsers, *, cmd_acp: Callable) -> None:
     """Attach the ``acp`` subcommand to ``subparsers``."""
     acp_parser = subparsers.add_parser(
-        "acp", help="Run Aa as an ACP (Agent Client Protocol) server",
-        description="Start Aa in ACP mode for editor integration (VS Code, Zed, JetBrains)",
+        "acp", help="Run Untitled as an ACP (Agent Client Protocol) server",
+        description="Start Untitled in ACP mode for editor integration (VS Code, Zed, JetBrains)",
     )
     add_accept_hooks_flag(acp_parser)
     acp_parser.add_argument(

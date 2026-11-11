@@ -561,7 +561,7 @@ class TestCountOccurrences:
     def test_basic(self):
         from tools.patch_parser import _count_occurrences
         assert _count_occurrences("aaa", "a") == 3
-        assert _count_occurrences("aaa", "aa") == 2
+        assert _count_occurrences("aaa", "untitled") == 2
         assert _count_occurrences("hello world", "xyz") == 0
         assert _count_occurrences("", "x") == 0
 

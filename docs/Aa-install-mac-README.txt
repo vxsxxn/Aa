@@ -1,10 +1,10 @@
-Aa - Mac installer
+Untitled - Mac installer
 ==================
 
 If double-clicking gives an error, use this instead:
 
 1. Open Terminal (press Cmd+Space, type Terminal, press Return)
-2. Type exactly:  bash ~/Downloads/Aa-install-mac.command
+2. Type exactly:  bash ~/Downloads/Untitled-install-mac.command
 3. Press Return and wait for it to finish
 
 Why the errors happen: macOS only allows software signed by a paid Apple

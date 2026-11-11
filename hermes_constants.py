@@ -1,4 +1,4 @@
-"""Shared constants for Aa (Hermes-engine paths still use hermes_* names).
+"""Shared constants for Untitled (Hermes-engine paths still use hermes_* names).
 
 Import-safe, stdlib-only — importable from anywhere without circular-import risk.
 """

@@ -89,7 +89,7 @@ Z={QUERY}
 
 ---
 
-## Using with Aa
+## Using with Untitled
 
 ### As ephemeral system prompt (config.yaml)
 

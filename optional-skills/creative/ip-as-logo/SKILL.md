@@ -2,7 +2,7 @@
 name: ip-as-logo
 description: "Design minimal cute IP mascot marks readable at 32px."
 version: 1.0.0
-author: s1dashu (https://github.com/s1dashu, upstream s1dashu/ip-as-logo-skill), ported by Aa
+author: s1dashu (https://github.com/s1dashu, upstream s1dashu/ip-as-logo-skill), ported by Untitled
 license: MIT
 platforms: [linux, macos, windows]
 metadata:

@@ -174,11 +174,11 @@ WordPiece is similar to BPE but uses a different merge selection criterion.
 ### Why different scoring?
 
 **BPE**: Merges most frequent pairs
-- "aa" appears 100 times → high priority
+- "untitled" appears 100 times → high priority
 - Even if 'a' appears 1000 times alone
 
 **WordPiece**: Merges pairs that are semantically related
-- "aa" appears 100 times, 'a' appears 1000 times → low score (100 / (1000 × 1000))
+- "untitled" appears 100 times, 'a' appears 1000 times → low score (100 / (1000 × 1000))
 - "th" appears 50 times, 't' appears 60 times, 'h' appears 55 times → high score (50 / (60 × 55))
 - Prioritizes pairs that appear together more than expected
 

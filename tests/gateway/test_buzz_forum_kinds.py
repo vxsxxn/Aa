@@ -21,7 +21,7 @@ from plugins.platforms.buzz.adapter import (
 )
 
 CHANNEL = "7c83e8f7bb1d4db2bb4074d5c14f2a7f6a9e1c21d3b5a90f8e7d6c5b4a392801"
-SELF_PUBKEY = "aa" * 32
+SELF_PUBKEY = "untitled" * 32
 OTHER_PUBKEY = "bb" * 32
 
 

@@ -7,7 +7,7 @@ from hermes_cli._old_updater import stop_for_relaunch
 
 # Frozen data for old imports, not a download performed by this module.
 PSUTIL_URL = (
-    "https://files.pythonhosted.org/packages/aa/c6/"
+    "https://files.pythonhosted.org/packages/untitled/c6/"
     "d1ddf4abb55e93cebc4f2ed8b5d6dbad109ecb8d63748dd2b20ab5e57ebe/"
     "psutil-7.2.2.tar.gz"
 )

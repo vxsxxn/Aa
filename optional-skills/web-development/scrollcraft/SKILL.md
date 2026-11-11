@@ -2,7 +2,7 @@
 name: scrollcraft
 description: "Premium scroll-driven landing pages; scroll = timeline."
 version: 1.0.0
-author: 'nateherkai (upstream scroll-craft), ported by Aa'
+author: 'nateherkai (upstream scroll-craft), ported by Untitled'
 license: MIT
 platforms: [linux, macos, windows]
 metadata:

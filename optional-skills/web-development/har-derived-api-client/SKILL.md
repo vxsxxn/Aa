@@ -2,7 +2,7 @@
 name: har-derived-api-client
 description: Record a site's XHR into a HAR, derive an HTTP client.
 version: 0.1.0
-author: Aa
+author: Untitled
 license: MIT
 platforms: [linux, macos, windows]
 metadata:

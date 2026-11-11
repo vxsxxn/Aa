@@ -42,7 +42,7 @@ colors:
 
 # Optional flavor — safe to delete.
 branding:
-  agent_name: Aa
+  agent_name: Untitled
   prompt_symbol: "❯"
   help_header: "(^_^)? Commands"
 

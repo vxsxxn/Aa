@@ -78,7 +78,7 @@ _ACP_FLAGS = (
 
 
 def cmd_acp(args):
-    """Launch Aa as an ACP server."""
+    """Launch Untitled as an ACP server."""
     import os
     # The gateway-backed ACP server forwards launch flags from their documented env equivalents
     # (main() already exported --yolo / --safe-mode / --ignore-user-config).

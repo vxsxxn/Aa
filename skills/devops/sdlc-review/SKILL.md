@@ -2,7 +2,7 @@
 name: sdlc-review
 description: Review Kanban handoffs and route verified outcomes.
 version: 1.1.0
-author: Jakub Wolniewicz (@frizikk) + Aa
+author: Jakub Wolniewicz (@frizikk) + Untitled
 license: MIT
 platforms: [linux, macos, windows]
 metadata:

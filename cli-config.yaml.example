@@ -1,4 +1,4 @@
-# Aa CLI Configuration
+# Untitled CLI Configuration
 # Copy settings from this example into ~/.hermes/config.yaml, or use
 # `hermes config set <section.key> <value>` to update the active profile.
 # This file configures CLI behavior; only documented secret environment

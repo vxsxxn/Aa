@@ -1,6 +1,6 @@
-# Aa - Development Guide
+# Untitled - Development Guide
 
-For AI coding assistants and developers working on Aa. This root file is a hub: what
+For AI coding assistants and developers working on Untitled. This root file is a hub: what
 applies everywhere, then a routing table. Each area's `AGENTS.md` loads automatically when you work
 in that directory; read it before editing there. `python scripts/check` caps this file at 12k chars
 and every root-to-area chain at 30k, so it loads whole on 128k+ models: long form goes in the guide.

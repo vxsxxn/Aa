@@ -1,8 +1,8 @@
-# Aa — custom agent forked from Hermes
+# Untitled — custom agent forked from Hermes
 
-Fork of Hermes Agent v0.22.5 (bf0203a794), branch `aa`.
+Fork of Hermes Agent v0.22.5 (bf0203a794), branch `untitled`.
 
-## What Aa is
+## What Untitled is
 A lean, self-modifying coding/building agent (Claude Code spirit) built on the
 Hermes engine, keeping Hermes' three strengths — skills (self-improvement),
 memory, identity — with everything else stripped or dormant. Model switchable
@@ -12,9 +12,9 @@ from day one (OpenRouter first; provider-agnostic).
 - Path: fork Hermes source, strip + strengthen. NOT stock-Hermes profile, NOT from scratch.
 - Interface: terminal/CLI only. No Telegram, no desktop app, no connectors.
 - Job: building things — websites, AI business, code. All-round assistant second.
-- Name: "Aa".
-- Self-modification: FULL freedom — Aa may edit its own source, not just config/skills/tools.
-- Distribution: Aa is published like Hermes — anyone can use it. The repo must stay
+- Name: "Untitled".
+- Self-modification: FULL freedom — Untitled may edit its own source, not just config/skills/tools.
+- Distribution: Untitled is published like Hermes — anyone can use it. The repo must stay
   generic: no personal paths, identities, or user-specific config in repo code; those
   belong in each user's own profile (SOUL.md, memory, .env).
 
@@ -27,12 +27,12 @@ from day one (OpenRouter first; provider-agnostic).
 - Trading plugins
 
 ## Keep & strengthen
-1. Identity — SOUL.md as the single voice; Aa owns rewriting it (with a changelog trail).
+1. Identity — SOUL.md as the single voice; Untitled owns rewriting it (with a changelog trail).
 2. Memory — persistent notes + session search; make consolidation routine (auto-summarize + prune).
-3. Skills — self-improvement loop: Aa writes/updates its own skills after tasks; no approval gate
+3. Skills — self-improvement loop: Untitled writes/updates its own skills after tasks; no approval gate
    (user granted full freedom), but every skill edit is logged and revertible via git.
 4. Coding tools — Claude Code-style: strong file edit/search, terminal, plan-then-build habits.
-5. Self-tweak layer — Aa can modify its own source; changes land in git so user reviews via history.
+5. Self-tweak layer — Untitled can modify its own source; changes land in git so user reviews via history.
 
 ## Milestones
 - M1 (done): fork boots CLI, chats with real model (OpenRouter key), model switchable.
@@ -47,10 +47,10 @@ from day one (OpenRouter first; provider-agnostic).
   Skills pruned in the development profile to software-development / web / devops /
   autonomous-ai-agents. Identity: SOUL.md live in the development profile with changelog.
   Memory verified: agent can write MEMORY.md in its profile.
-- M3 (done 2026-10-31): self-modification layer live. scripts/self_edit.py gives Aa
+- M3 (done 2026-10-31): self-modification layer live. scripts/self_edit.py gives Untitled
   bounded, git-tracked self-edits: commit (syntax-checks py/json/yaml, refuses paths
-  outside the repo, prefixes Aa:self-edit:), revert (refuses on a dirty tree),
-  log, status. Verified end-to-end: Aa ran live, edited its own script (dirty-tree
+  outside the repo, prefixes Untitled:self-edit:), revert (refuses on a dirty tree),
+  log, status. Verified end-to-end: Untitled ran live, edited its own script (dirty-tree
   guard on revert), committed via the tool, exercised both revert paths, and updated
   its SOUL changelog and memory.
 - M4 (done 2026-10-31): hardening.
@@ -64,34 +64,34 @@ from day one (OpenRouter first; provider-agnostic).
        invisible unicode, …) BLOCK the commit; soft C2 hits WARN only.
     2. Test gate: source commits (agent/tools/hermes_cli/scripts/tests,
        *.py/*.sh) must pass scripts/Aa_selftest.py (compile smoke + unittest
-       discovery of tests/Aa/) before the commit sticks; nothing is left
+       discovery of tests/Untitled/) before the commit sticks; nothing is left
        staged after a refusal. Non-source commits skip the gate.
   - scripts/Aa_selftest.py: stdlib-only two-layer runner (compileall +
-    unittest discover tests/Aa/); AA_GATE_RUNNING=1 gate mode; a direct run
+    unittest discover tests/Untitled/); AA_GATE_RUNNING=1 gate mode; a direct run
     sets AA_SELFTEST_RUNNING so the suite's own recursion probe skips.
-  - tests/Aa/test_self_edit.py: unit tests covering path refusal, injection
+  - tests/Untitled/test_self_edit.py: unit tests covering path refusal, injection
     gate (payload samples — hex-escaped in source so the test file itself
     never trips the scanner; runtime strings identical), gate pass/refuse +
     no-staged-leftover assertions, non-source skip, revert dirty guard,
     script smoke tests.
   - Verified: full suite 11 tests OK (1 by-design skip); first guarded commit
-    landed as 1d8997c07e "Aa:self-edit: M4: …" with both gates exercised live
+    landed as 1d8997c07e "Untitled:self-edit: M4: …" with both gates exercised live
     (scanner blocked a payload-bearing test file until fixtures were
     neutralized; test gate refused the earlier bare-function probe).
 - M5 (done 2026-10-31): complementary hardening.
   - Aa_memory.py: MEMORY.md consolidation to a char budget — dry-run report by
     default, --apply moves oldest entries to MEMORY-archive.md (§ separators
     preserved, last/oversized single entry never moved). Unit + CLI tests
-    (tests/Aa/test_Aa_memory.py).
+    (tests/Untitled/test_Aa_memory.py).
   - self_edit.py "soul" subcommand: appends a dated entry under SOUL.md
     "## Changelog" and commits through the same guarded path
-    (Aa:self-edit: soul: …). First live use: f7b31cd20f.
+    (Untitled:self-edit: soul: …). First live use: f7b31cd20f.
   - Suite: 21 tests OK. Guarded commits af3d6ad68d (M5 code+tests),
     f7b31cd20f (soul).
 - M6 (in progress): coding-tool strengthening. Prep survey done 2026-10-31:
   no repo-map/symbol extraction exists (edits rely on tools/file_tools.py
   patch_tool fuzzy matching); the self-edit test gate always runs the full
-  suite (scripts/Aa_selftest.py: compileall + unittest discover tests/Aa);
+  suite (scripts/Aa_selftest.py: compileall + unittest discover tests/Untitled);
   scripts/Aa_usage.py already reports usage from state.db.
   Planned items:
   1. (done 2026-10-31) Repo map/symbols: scripts/Aa_repo_map.py — stdlib-only
@@ -100,7 +100,7 @@ from day one (OpenRouter first; provider-agnostic).
      symbols instead of fuzzy text; self-test gate runs it on scripts/
      (repo-map smoke step); temp test clones auto-seed scripts/Aa_*.py.
   2. (done 2026-10-31) Targeted test selection: self_edit.py gates large
-     diffs (>=4 source files or >=200 added lines) to only the tests/Aa
+     diffs (>=4 source files or >=200 added lines) to only the tests/Untitled
      modules whose text names a changed file's stem, plus byte-compile of
      the changed files; small diffs still run the full suite.
   3. (done 2026-10-31) Unused-code candidates: Aa_usage.py --unused lists
@@ -110,7 +110,7 @@ from day one (OpenRouter first; provider-agnostic).
   M6 complete.
 
 ## Layout
-- Repo: this checkout (branch `aa`)
+- Repo: this checkout (branch `untitled`)
 - Profile data (SOUL.md, memory, skills, sessions): lives in the Hermes profiles dir
   for the running instance — kept out of the repo (generic, user-specific data goes there)
-- Env: run-in-hermes-env from the upstream checkout reused for Aa's checkout too
+- Env: run-in-hermes-env from the upstream checkout reused for Untitled's checkout too

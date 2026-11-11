@@ -1,7 +1,7 @@
 {
   "name": "hermes-whatsapp-bridge",
   "version": "1.0.0",
-  "description": "WhatsApp bridge for Aa using Baileys",
+  "description": "WhatsApp bridge for Untitled using Baileys",
   "private": true,
   "type": "module",
   "scripts": {

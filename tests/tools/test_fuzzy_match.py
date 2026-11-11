@@ -205,12 +205,12 @@ class TestReplaceAll:
         """Self-overlapping patterns must produce non-overlapping spans.
 
         Regression: _strategy_exact advanced the scan cursor by 1 instead of
-        len(pattern), so "aa" in "aaaa" matched at offsets 0, 1, 2 (overlapping)
+        len(pattern), so "untitled" in "aaaa" matched at offsets 0, 1, 2 (overlapping)
         instead of 0, 2. _apply_replacements works in reverse order, so the
         stale offsets corrupted the file. Fix aligns with str.replace().
         """
         # replace_all: 2 non-overlapping matches, not 3 overlapping ones.
-        new, count, _, err = fuzzy_find_and_replace("aaaa", "aa", "b", replace_all=True)
+        new, count, _, err = fuzzy_find_and_replace("aaaa", "untitled", "b", replace_all=True)
         assert err is None
         assert count == 2
         assert new == "bb"
@@ -223,14 +223,14 @@ class TestReplaceAll:
 
         # embedded in surrounding content — non-matched parts preserved
         new, count, _, err = fuzzy_find_and_replace(
-            "prefix aaaa suffix", "aa", "b", replace_all=True
+            "prefix aaaa suffix", "untitled", "b", replace_all=True
         )
         assert err is None
         assert count == 2
         assert new == "prefix bb suffix"
 
         # without the flag, the non-overlapping count is reported (2, not 3)
-        new, count, _, err = fuzzy_find_and_replace("aaaa", "aa", "b", replace_all=False)
+        new, count, _, err = fuzzy_find_and_replace("aaaa", "untitled", "b", replace_all=False)
         assert count == 0
         assert "2 matches" in err
 

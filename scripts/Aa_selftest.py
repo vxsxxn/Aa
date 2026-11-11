@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Aa self-test: what must pass before a source commit sticks.
+"""Untitled self-test: what must pass before a source commit sticks.
 
 Two layers:
   1. syntax smoke — every tracked .py file must compile;
-  2. unit tests — python -m unittest discover in tests/Aa/.
+  2. unit tests — python -m unittest discover in tests/Untitled/.
 
 Integration tests (spawning the real agent / writing to real profile state)
 skip themselves when AA_GATE_RUNNING=1 — that is how self_edit.py's test gate
@@ -38,17 +38,17 @@ def main() -> int:
         return 1
     print(f"repo map: ok ({r.stdout.strip().splitlines()[-1]})")
 
-    # 2. Unit tests. Discover with the repo root importable (tests/Aa imports
+    # 2. Unit tests. Discover with the repo root importable (tests/Untitled imports
     #    tools.* and scripts.* directly). AA_SELFTEST_RUNNING lets
     #    test_Aa_selftest_direct skip — running Aa_selftest inside itself
     #    would recurse forever.
     sys.path.insert(0, str(REPO))
     os.environ["AA_SELFTEST_RUNNING"] = "1"
-    if not (REPO / "tests" / "Aa").is_dir():
-        print("unit tests: ok (0 tests — no tests/Aa directory)")
+    if not (REPO / "tests" / "Untitled").is_dir():
+        print("unit tests: ok (0 tests — no tests/Untitled directory)")
         return 0
     suite = unittest.defaultTestLoader.discover(
-        start_dir=str(REPO / "tests" / "Aa"), top_level_dir=str(REPO))
+        start_dir=str(REPO / "tests" / "Untitled"), top_level_dir=str(REPO))
     result = unittest.TextTestRunner(verbosity=2).run(suite)
     if not result.wasSuccessful():
         print(f"FAIL: {len(result.failures)} failure(s), "

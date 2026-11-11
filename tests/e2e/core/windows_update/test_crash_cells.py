@@ -462,7 +462,7 @@ def _direct_update_child(proc) -> psutil.Process | None:
 # Printed by ``_cmd_update_impl``, which hermes_cli/main.py enters only after
 # ``UpdateLock.acquire()`` returned: once update.log gains one, the update child has
 # taken its place under the script's claim (and named itself in it, where it does).
-UPDATE_BANNER = "Updating Aa..."
+UPDATE_BANNER = "Updating Untitled..."
 
 
 UPDATE_DONE = "Update complete!"

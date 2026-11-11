@@ -2,7 +2,7 @@
 name: decision-questionnaire
 description: "Turn an unanswerable decision into a questionnaire doc."
 version: 1.0.0
-author: "Matt Pocock (mattpocock/skills, to-questionnaire) + Aa"
+author: "Matt Pocock (mattpocock/skills, to-questionnaire) + Untitled"
 license: MIT
 platforms: [linux, macos, windows]
 metadata:

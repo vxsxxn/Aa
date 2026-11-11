@@ -1,6 +1,6 @@
 @echo off
 REM ============================================================================
-REM Aa Installer for Windows (CMD wrapper)
+REM Untitled Installer for Windows (CMD wrapper)
 REM ============================================================================
 REM This batch file launches the PowerShell installer for users running CMD.
 REM
@@ -12,7 +12,7 @@ REM   iex (irm https://hermes-agent.nousresearch.com/install.ps1)
 REM ============================================================================
 
 echo.
-echo  Aa Installer
+echo  Untitled Installer
 echo  Launching PowerShell installer...
 echo.
 

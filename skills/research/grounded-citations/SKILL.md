@@ -2,7 +2,7 @@
 name: grounded-citations
 description: "Ground answers and documents in cited, verifiable sources."
 version: 1.2.0
-author: Aa + Teknium
+author: Untitled + Teknium
 license: MIT
 platforms: [linux, macos, windows]
 metadata:

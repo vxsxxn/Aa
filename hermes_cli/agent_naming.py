@@ -30,7 +30,7 @@ def identity_seeds() -> tuple[str, str]:
 
     First the shipped default, then the pre-rebrand seed still present on
     installs that seeded SOUL.md before the name became configurable, then the
-    "Aa"-named seed from installs before the default became "untitled". A
+    "Untitled"-named seed from installs before the default became "untitled". A
     normalized SOUL.md must equal one of these exactly to be personalized —
     anything else is user intent and is never overwritten.
     """

@@ -225,7 +225,7 @@ def test_pinned_mtime_same_size_replacement_triggers_reload(tmp_path):
     obj._config_sig = file_signature(cfg_file.stat())
     wait_for_ctime_tick(tmp_path, cfg_file.stat().st_ctime_ns)
     other = tmp_path / "other.yaml"
-    other.write_text("mcp_servers:\n  aa: {command: a}\n")
+    other.write_text("mcp_servers:\n  untitled: {command: a}\n")
     shutil.copy2(other, cfg_file)
     os.utime(cfg_file, ns=(obj._config_sig[0], obj._config_sig[0]))
 
@@ -233,4 +233,4 @@ def test_pinned_mtime_same_size_replacement_triggers_reload(tmp_path):
         obj._check_config_mcp_changes()
 
     obj._reload_mcp.assert_called_once()
-    assert obj._config_mcp_servers == {"aa": {"command": "a"}}
+    assert obj._config_mcp_servers == {"untitled": {"command": "a"}}

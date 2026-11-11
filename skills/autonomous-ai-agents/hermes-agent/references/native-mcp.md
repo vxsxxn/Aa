@@ -1,11 +1,11 @@
 # Native MCP Client
 
-Aa has a built-in MCP client that connects to MCP servers at startup, discovers their tools, and makes them available as first-class tools the agent can call directly. No bridge CLI needed -- tools from MCP servers appear alongside built-in tools like `terminal`, `read_file`, etc.
+Untitled has a built-in MCP client that connects to MCP servers at startup, discovers their tools, and makes them available as first-class tools the agent can call directly. No bridge CLI needed -- tools from MCP servers appear alongside built-in tools like `terminal`, `read_file`, etc.
 
 ## When to Use
 
 Use this whenever you want to:
-- Connect to MCP servers and use their tools from within Aa
+- Connect to MCP servers and use their tools from within Untitled
 - Add external capabilities (filesystem access, GitHub, databases, APIs) via MCP
 - Run local stdio-based MCP servers (npx, uvx, or any command)
 - Connect to remote HTTP/StreamableHTTP MCP servers
@@ -36,7 +36,7 @@ mcp_servers:
     args: ["mcp-server-time"]
 ```
 
-Restart Aa. On startup it will:
+Restart Untitled. On startup it will:
 1. Connect to the server
 2. Discover available tools
 3. Register them with the prefix `mcp_time_*`
@@ -91,7 +91,7 @@ Note: A server config must have either `command` (stdio) or `url` (HTTP), not bo
 
 ### Startup Discovery
 
-When Aa starts, `discover_mcp_tools()` is called during tool initialization:
+When Untitled starts, `discover_mcp_tools()` is called during tool initialization:
 
 1. Reads `mcp_servers` from `~/.hermes/config.yaml`
 2. For each server, spawns a connection in a dedicated background event loop
@@ -221,7 +221,7 @@ hermes pm repair
 
 - Check that the server is listed under `mcp_servers` (not `mcp` or `servers`)
 - Ensure the YAML indentation is correct
-- Look at Aa startup logs for connection messages
+- Look at Untitled startup logs for connection messages
 - Tool names are prefixed with `mcp_{server}_{tool}` -- look for that pattern
 
 ### Connection keeps dropping

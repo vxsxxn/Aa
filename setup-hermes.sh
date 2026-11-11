@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ============================================================================
-# Aa / Hermes-engine setup script — THE dev-environment entry point.
+# Untitled / Hermes-engine setup script — THE dev-environment entry point.
 # ============================================================================
 # Sets up the pm-managed development environment from a fresh clone:
 #   1. Stage the pinned uv from pm/lock.json (sha256-verified, into the pm
@@ -41,7 +41,7 @@ cd "$SCRIPT_DIR"
 export UV_NO_CONFIG=1
 
 echo ""
-echo -e "${CYAN}Aa Setup${NC}"
+echo -e "${CYAN}Untitled Setup${NC}"
 echo ""
 
 # ============================================================================
@@ -249,7 +249,7 @@ if [ "$os" != win32 ]; then
             if ! echo "$PATH" | tr ':' '\n' | grep -q "^$HOME/.local/bin$"; then
                 if ! grep -q '\.local/bin' "$SHELL_CONFIG" 2>/dev/null; then
                     echo "" >> "$SHELL_CONFIG"
-                    echo "# Aa — ensure ~/.local/bin is on PATH" >> "$SHELL_CONFIG"
+                    echo "# Untitled — ensure ~/.local/bin is on PATH" >> "$SHELL_CONFIG"
                     echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$SHELL_CONFIG"
                     echo -e "${GREEN}✓${NC} Added ~/.local/bin to PATH in $SHELL_CONFIG"
                 else

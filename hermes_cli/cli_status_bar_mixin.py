@@ -1128,7 +1128,7 @@ class CLIStatusBarMixin:
                 text = (" · " if width < 76 else " │ ").join(parts)
             return self._right_align_status_title(text, session_title, width)
         except Exception:
-            return f"☤ {self.model if getattr(self, 'model', None) else 'Aa'}"
+            return f"☤ {self.model if getattr(self, 'model', None) else 'Untitled'}"
 
     def _get_status_bar_fragments(self):
         if (

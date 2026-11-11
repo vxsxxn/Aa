@@ -1,4 +1,4 @@
-"""Skills configuration for Aa. `Aa skills` enters this module."""
+"""Skills configuration for Untitled. `Untitled skills` enters this module."""
 from typing import List, Optional, Set
 
 from hermes_cli.config import cfg_get, load_config, save_config

@@ -2,7 +2,7 @@
 name: box
 description: Box manages cloud files, sharing, search, and metadata.
 version: 1.0.0
-author: Chris Kim (iskysun96), Aa
+author: Chris Kim (iskysun96), Untitled
 license: MIT
 platforms: [linux, macos, windows]
 prerequisites:

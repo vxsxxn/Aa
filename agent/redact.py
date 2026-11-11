@@ -1232,7 +1232,7 @@ def _pattern_structure(pattern: str) -> tuple[bool, bool]:
     Top-level ``|`` defeats the literal-prefix guarantee (in ``ab|.*`` the prefix
     binds only the first branch; ``ab(?:x|y)`` is fine). An unbounded quantifier
     on a group containing one (``(a+)+``, ``(a{2,})+``) is the canonical ReDoS
-    shape. Structural only; overlapping branches (``(a|aa)+``) are not detected.
+    shape. Structural only; overlapping branches (``(a|untitled)+``) are not detected.
     """
     top_level_alt = nested = False
     contains_unbounded = [False]  # per open group: does it contain an unbounded repeat?

@@ -189,7 +189,7 @@
       # from it, and never the reverse.
       options.programs.hermes-agent = {
         enable = lib.mkEnableOption ''
-          the Aa command line application.
+          the Untitled command line application.
 
           This adds `hermes` to home.packages, and exports HERMES_HOME with
           home.sessionVariables. An interactive shell then uses the same
@@ -395,7 +395,7 @@
             # ── Linux: systemd user services ───────────────────────────────
             (lib.mkIf (isLinux && cfg.gateway.enable) {
               systemd.user.services.hermes-agent = mkUnit {
-                description = "Aa Gateway";
+                description = "Untitled Gateway";
                 argv = common.gatewayArgv cfg;
               };
             })

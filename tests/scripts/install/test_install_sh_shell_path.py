@@ -15,7 +15,7 @@ import pytest
 
 pytestmark = pytest.mark.platforms("posix")
 INSTALL_SH = Path(__file__).resolve().parents[3] / "scripts" / "install.sh"
-MARKER = "# Aa command"
+MARKER = "# Untitled command"
 
 # Fedora /etc/skel (bash-5.2): ~/.bashrc guards and prepends with a bare assignment.
 FEDORA_BASHRC = """\

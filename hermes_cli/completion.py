@@ -67,7 +67,7 @@ def generate_bash(parser: argparse.ArgumentParser) -> str:
                 f"            return\n"
                 f"            ;;")
     cases_str = "\n".join(cases)
-    return f"""# Aa bash completion
+    return f"""# Untitled bash completion
 # Add to ~/.bashrc:
 #   eval "$(hermes completion bash)"
 
@@ -153,7 +153,7 @@ def generate_zsh(parser: argparse.ArgumentParser) -> str:
                 f"                    ;;")
     sub_cases_str = "\n".join(sub_cases)
     return f"""#compdef hermes
-# Aa zsh completion
+# Untitled zsh completion
 # Add to ~/.zshrc:
 #   eval "$(hermes completion zsh)"
 
@@ -201,7 +201,7 @@ def generate_fish(parser: argparse.ArgumentParser) -> str:
     subcommands = _sorted_subcommands(parser)
     top_cmds_str = " ".join(cmd for cmd, _ in subcommands)
     lines: list[str] = [
-        "# Aa fish completion",
+        "# Untitled fish completion",
         "# Add to your config:",
         "#   hermes completion fish | source",
         "",

@@ -2,7 +2,7 @@
 name: draw-your-font
 description: "Turn a handwriting photo into an installable TTF font."
 version: 0.1.0
-author: Danilo Znamerovszkij (https://github.com/danilo-znamerovszkij/draw-your-font), ported by Aa
+author: Danilo Znamerovszkij (https://github.com/danilo-znamerovszkij/draw-your-font), ported by Untitled
 license: MIT
 platforms: [linux, macos, windows]
 required_commands: [node, npx]

@@ -1,15 +1,15 @@
 #!/bin/bash
-# Aa Desktop — one-file installer for macOS / Linux.
-# Usage:  bash install-aa.sh
+# Untitled Desktop — one-file installer for macOS / Linux.
+# Usage:  bash install-untitled.sh
 set -euo pipefail
 
-REPO_URL="https://github.com/vxsxxn/Aa.git"
-BRANCH="aa"
-DEST="${HOME}/aa"
+REPO_URL="https://github.com/vxsxxn/Untitled.git"
+BRANCH="untitled"
+DEST="${HOME}/untitled"
 
 say() { printf '\n\033[1m%s\033[0m\n' "$*"; }
 
-say "Aa Desktop installer"
+say "Untitled Desktop installer"
 
 # 1. Check prerequisites -------------------------------------------------
 if ! command -v git >/dev/null 2>&1; then
@@ -26,7 +26,7 @@ if [ -d "$DEST/.git" ]; then
   say "Updating existing copy in $DEST"
   git -C "$DEST" pull --ff-only
 else
-  say "Downloading Aa into $DEST"
+  say "Downloading Untitled into $DEST"
   git clone --depth 1 --branch "$BRANCH" "$REPO_URL" "$DEST"
 fi
 
@@ -44,5 +44,5 @@ cd "$DEST"
 uv sync --frozen
 
 # 5. Launch ---------------------------------------------------------------
-say "Starting Aa Desktop (your browser will open — paste your OpenRouter API key in ⚙ Settings)"
+say "Starting Untitled Desktop (your browser will open — paste your OpenRouter API key in ⚙ Settings)"
 exec uv run --frozen scripts/Aa_desktop.py

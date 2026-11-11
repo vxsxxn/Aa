@@ -51,4 +51,4 @@ and in the SKILL.md credits block. No code was relicensed.
 
 - License: MIT (inherits from hermes-agent repo)
 - Original author of the skill shell: dodo-reach
-- Expansion with palettes + video: Aa contributors
+- Expansion with palettes + video: Untitled contributors

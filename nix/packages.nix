@@ -1,4 +1,4 @@
-# nix/packages.nix — Aa package built with uv2nix
+# nix/packages.nix — Untitled package built with uv2nix
 { inputs, ... }:
 {
   perSystem =

@@ -56,20 +56,20 @@ def _wings(*glyphs) -> list[list[str]]:
             for g in glyphs]
 
 
-# Default Aa branding shared by built-in skins (mono/daylight override help_header).
-# Product name is "Aa" (not "Aa Agent"); keep agent_name exact so banners match --version.
+# Default Untitled branding shared by built-in skins (mono/daylight override help_header).
+# Product name is "Untitled" (not "Untitled Agent"); keep agent_name exact so banners match --version.
 _HERMES_BRANDING: dict[str, str] = {
-    "agent_name": "Aa",
-    "welcome": "Welcome to Aa! Type your message or /help for commands.",
+    "agent_name": "Untitled",
+    "welcome": "Welcome to Untitled! Type your message or /help for commands.",
     "goodbye": "Goodbye!",
-    "response_label": " Aa ",
+    "response_label": " Untitled ",
     "prompt_symbol": "❯",
     "help_header": "Available Commands",
 }
 
 _BUILTIN_SKINS: dict[str, dict[str, Any]] = {
     "default": {
-        "name": "default", "description": "Classic Aa — gold and kawaii",
+        "name": "default", "description": "Classic Untitled — gold and kawaii",
         # Dark-authored; values match the TUI's DARK_THEME so both render the same gold.
         "colors": {
             "banner_border": "#CD7F32", "banner_title": "#FFD700", "banner_accent": "#FFBF00",

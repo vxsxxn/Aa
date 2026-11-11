@@ -605,7 +605,7 @@ class GatewaySlashCommandsMixin(
         return reply
 
     async def _handle_version_command(self, event: MessageEvent) -> str:
-        """Handle /version — show the running Aa version."""
+        """Handle /version — show the running Untitled version."""
         return _execute("version").text
 
     def _catalog_options(self, event: MessageEvent) -> dict:

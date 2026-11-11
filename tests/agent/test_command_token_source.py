@@ -215,7 +215,7 @@ class TestCallableKeyGetsBearerAuth:
     """
 
     def test_callable_takes_the_bearer_hook_path(self, monkeypatch):
-        import agent.anthropic_adapter as aa
+        import agent.anthropic_adapter as untitled
 
         seen = {}
 
@@ -224,9 +224,9 @@ class TestCallableKeyGetsBearerAuth:
             return object()
 
         monkeypatch.setattr(
-            aa, "_build_anthropic_client_with_bearer_hook", _fake_hook
+            untitled, "_build_anthropic_client_with_bearer_hook", _fake_hook
         )
-        aa.build_anthropic_client(
+        untitled.build_anthropic_client(
             lambda: "minted-token", "https://gateway.invalid/anthropic"
         )
         assert seen.get("callable") is True

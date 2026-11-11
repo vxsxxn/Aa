@@ -2,7 +2,7 @@
 name: simple-english
 description: "Rewrite text to ASD-STE100 Simplified Technical English."
 version: 1.2.0
-author: AminBlg (https://github.com/AminBlg/SimpleEnglish), ported by Aa
+author: AminBlg (https://github.com/AminBlg/SimpleEnglish), ported by Untitled
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
