@@ -180,6 +180,9 @@ async def _dispatch_extract(provider, fetch_urls: list[str], format: Optional[st
     if results and all(r.get("error") for r in results) and _rescue_eligible(provider):
         return await asyncio.to_thread(_rescue_extract, provider.name, fetch_urls, results)
 
+    from tools.web_content_guard import annotate_entry
+    results = [annotate_entry(r) for r in results]
+
     # Cache each successful fetch under the REQUESTED url it reports as its own — never by list
     # position: providers omit failed URLs or return successes out of request order, and a positional
     # write filed one page's text under another URL's key for the whole TTL. ``metadata.sourceURL``
