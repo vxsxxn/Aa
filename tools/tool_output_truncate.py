@@ -22,11 +22,42 @@ def head_tail_split(budget: int) -> tuple[int, int]:
     return head, budget - head
 
 
+def compress_repeated_lines(text: str, min_run: int = 3) -> str:
+    """Collapse runs of identical lines into one line plus a repetition note.
+
+    Log-style tool output (builds, test runs, progress spinners) often spends most
+    of its budget repeating the same line hundreds of times. Runs of ``min_run`` or
+    more identical consecutive non-empty lines are replaced by the first line and a
+    compact ``[repeated N×]`` marker, preserving head/tail structure and line order.
+    """
+    lines = text.split("\n")
+    out: list[str] = []
+    i = 0
+    n = len(lines)
+    while i < n:
+        j = i + 1
+        if lines[i].strip():
+            while j < n and lines[j] == lines[i]:
+                j += 1
+        if j - i >= min_run:
+            out.append(lines[i])
+            out.append(f"[repeated {j - i}× identical lines omitted]")
+            i = j
+        else:
+            out.append(lines[i])
+            i += 1
+    return "\n".join(out)
+
+
 def truncate_head_tail(text: str, max_chars: int, *, label: str = "OUTPUT") -> str:
-    """``text`` unchanged when it fits ``max_chars``; otherwise head + notice + tail (the kept
-    text is exactly ``max_chars`` long, the notice rides on top)."""
+    """``text`` unchanged when it fits ``max_chars``; otherwise repeated-line compression
+    first, then head + notice + tail (the kept text is exactly ``max_chars`` long)."""
     if len(text) <= max_chars:
         return text
+    compressed = compress_repeated_lines(text)
+    if len(compressed) <= max_chars:
+        return compressed
+    text = compressed
     head, tail = head_tail_split(max_chars)
     omitted = len(text) - head - tail
     return text[:head] + truncation_notice(omitted, len(text), label=label) + text[-tail:]
